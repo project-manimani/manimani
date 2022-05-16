@@ -10,14 +10,14 @@ import com.manimani.web.dao.*;
 import com.manimani.web.vo.*;
 
 @Controller
-@RequestMapping("/main")
-public class MainController {
+@RequestMapping("/group")
+public class GroupController {
 
     @Autowired
     private UsersDAO dao;
     
-    @GetMapping("/main")
-    public String main() {
-        return "main/main";
+    @RequestMapping("/group")
+    public String group() {
+        return "group/group";
     }
 }

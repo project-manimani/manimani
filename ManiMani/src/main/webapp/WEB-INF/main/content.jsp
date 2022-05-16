@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-  <title>Insert title here</title>
-  <script type="text/javascript">
-    location.href="main/main";
-  </script>
+<title>Insert title here</title>
 </head>
 <body>
 
+    <div class="fs-20"> aaa</div>
 </body>
 </html>
