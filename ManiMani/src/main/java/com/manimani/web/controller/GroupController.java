@@ -12,12 +12,11 @@ import com.manimani.web.vo.*;
 @Controller
 @RequestMapping("/group")
 public class GroupController {
-
-    @Autowired
-    private UsersDAO dao;
     
-    @RequestMapping("/group")
-    public String group() {
-        return "group/group";
+    @RequestMapping("/main")
+    public String group(Model model) {
+        
+        model.addAttribute("group_content", "group/main");
+        return "group/group_template";
     }
 }

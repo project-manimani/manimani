@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
 <head>
   <meta charset="UTF-8">
   <title>ManiMani!</title>
@@ -26,12 +25,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
   <!-- ------- -->
   
-  <link rel="stylesheet" type="text/css" href="../css/util.css"> <!-- util css 파일 -->
-  <link rel="stylesheet" type="text/css" href="../css/main.css"> <!-- 공용 css 파일 -->
+  <link rel="stylesheet" type="text/css" th:href="@{/css/util.css}"> <!-- util css 파일 -->
+  <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"> <!-- 공용 css 파일 -->
 </head>
 <body>
-  <jsp:include page="side.jsp"/>
-  <jsp:include page="content.jsp"/>
-  <jsp:include page="../main/footer.jsp"/>
+  <th:block th:include="fragments/side::sideFragment"></th:block>
+  <th:block th:include="${group_content}"></th:block>
+  <th:block th:include="fragments/footer::footerFragment"></th:block>
 </body>
 </html>

@@ -16,8 +16,10 @@ public class MainController {
     @Autowired
     private UsersDAO dao;
     
-    @GetMapping("/main")
-    public String main() {
-        return "main/main";
+    @GetMapping("/login")
+    public String login(Model model) {
+        
+        model.addAttribute("main_content", "main/login");
+        return "main/main_template";
     }
 }
