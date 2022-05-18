@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- test -->
+	<br>
+	<div class="fs-30 p-b-20">Test</div>
+	<div class="fs-20 p-b-30 "th:each="vo:${test}" th:if="${vo.view}==1">
+	<div th:class="${vo.view}==1?'fw-b':'fc-yell'">
+		----------------------<br>
+		matchingID: <span class="fc-blue"th:text="${vo.mid}"></span><br>
+		groupID   : <span class="fc-blue" th:text="${vo.gid}"></span><br>
+		user1     : <span class="fc-red" th:text="${vo.uid1}"></span><br>
+		user2     : <span class="fc-red"th:text="${vo.uid2}"></span><br>
+		view      : <span class="fc-blue" th:text="${vo.view}"></span><br>
+	</div></div>
+	<br>
+	<!-- end test -->
+</body>
+</html>

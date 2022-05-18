@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+/*[COLOR]*/
+.fc-red{color:red;}
+.fc-blue{color:blue;}
+.fc-gray{color:gray;}
+.fc-yell{color:yellow;}
+
+/* [font-weight] */
+.fw-b{font-weight: bold;}
