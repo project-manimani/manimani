@@ -24,8 +24,8 @@ public class MatchingController {
 		List<MatchingVO> test=service.matchingList();
 		
 		model.addAttribute("test",test);
-		model.addAttribute("matching_content","matching/matching");
-		return "matching/matching_template";
+		model.addAttribute("matching_content","matching/matching");//"group_content"
+		return "matching/matching_template";//group/group_template //matching_template삭제
 	}
 	
 }

@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+/* matching페이지 wrap */
+.matching_cnt{
+	margin: 50px;
+	font-size: 18px;
+}
+
 /*[COLOR]*/
 .fc-red{color:red;}
 .fc-blue{color:blue;}
@@ -8,3 +14,36 @@
 
 /* [font-weight] */
 .fw-b{font-weight: bold;}
+/**/
+
+/*slide*/
+.boxSlide{
+   position: absolute;
+   width:800px;
+   height: 300px;
+   overflow: hidden;
+}
+.makeOverflow{
+   position : absolute;
+   width:1500px;
+   height: 250px;
+}
+.inline1{
+   position : relative;
+   display: inline-block;
+   width: 220px;
+   height: 220px;
+}
+.oneUser{
+	width: 220px;
+	height: 250px;
+}
+.poster{
+   width:210px;
+   height: 210px;
+}
+.userIcon{
+   width: 200px;
+   height: 200px;
+}
+/**/

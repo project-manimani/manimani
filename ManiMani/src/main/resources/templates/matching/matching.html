@@ -2,22 +2,69 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script type="text/javascript"src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+		$(document).ready(function() {
+			$('.makeOverflow').slick({
+				prevArrow : $(".lefter"),
+				nextArrow : $(".righter"),
+				infinite : true,
+				speed : 300,
+				slidesToShow : 4,
+				slidesToScroll : 1
+			});
+		});
+</script>
+<style type="text/css">
+
+</style>
 </head>
 <body>
-	<!-- test -->
-	<br>
-	<div class="fs-30 p-b-20">Test</div>
-	<div class="fs-20 p-b-30 "th:each="vo:${test}" th:if="${vo.view}==1">
-	<div th:class="${vo.view}==1?'fw-b':'fc-yell'">
-		----------------------<br>
-		matchingID: <span class="fc-blue"th:text="${vo.mid}"></span><br>
-		groupID   : <span class="fc-blue" th:text="${vo.gid}"></span><br>
-		user1     : <span class="fc-red" th:text="${vo.uid1}"></span><br>
-		user2     : <span class="fc-red"th:text="${vo.uid2}"></span><br>
-		view      : <span class="fc-blue" th:text="${vo.view}"></span><br>
-	</div></div>
-	<br>
-	<!-- end test -->
-</body>
-</html>
+	<!-- side -->
+	<div class="matching_cnt">
+	
+	<!-- slide -->
+		<div class="boxofficerank">
+		<img class="lefter" title="<" src="">
+		<div class="makeOverflow">
+				<div class="oneUser" th:each="vo,index:${test}">
+						<div class="poster">
+							<img th:title="${index.index}+1" 
+								th:src="@{${index.index}+1>9?'/static/img/user_1.png':'/static/img/user_'+${index.index+1}+'.png'}"
+								
+								th:data-no="${vo.uid2}"class="ranks"
+							>
+							<div class="rankNum" th:text="${index.index}+1"></div>
+						</div>
+						<p class="rankTitle" th:text="${vo.uid2}"></p>
+				</div>
+		</div>
+
+		<img class="righter" title=">" src="">
+	</div>
+	<!-- end slide -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- dialog -->
+	<!-- 
+	<div class="box" id="dialog" th:title="" style="display:none"> 
+    </div> 
+    -->
+    </div>
+    <!-- end dialog -->
