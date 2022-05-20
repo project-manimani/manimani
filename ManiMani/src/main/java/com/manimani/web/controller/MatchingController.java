@@ -6,26 +6,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.manimani.web.service.MatchingService;
 import com.manimani.web.vo.MatchingVO;
 
 @Controller
-@RequestMapping("/matching")
 public class MatchingController {
 	@Autowired
 	private MatchingService service;
 	
 	//test
-	@RequestMapping("/matching")
+	@GetMapping("group/matching")
 	public String matching(Model model) {
 		
 		List<MatchingVO> test=service.matchingList();
 		
 		model.addAttribute("test",test);
-		model.addAttribute("matching_content","matching/matching");//"group_content"
-		return "matching/matching_template";//group/group_template //matching_template삭제
+		model.addAttribute("group_content","matching/matching");//"group_content"
+		return "group/group_template";//group/group_template //matching_template삭제
 	}
 	
 }

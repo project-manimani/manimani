@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>  dialog 용-->
 <script type="text/javascript"src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
 		$(document).ready(function() {
@@ -19,9 +20,7 @@
 			});
 		});
 </script>
-<style type="text/css">
-
-</style>
+<link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 </head>
 <body>
 	<!-- side -->
@@ -34,8 +33,7 @@
 				<div class="oneUser" th:each="vo,index:${test}">
 						<div class="poster">
 							<img th:title="${index.index}+1" 
-								th:src="@{${index.index}+1>9?'/static/img/user_1.png':'/static/img/user_'+${index.index+1}+'.png'}"
-								
+								th:src="@{${index.index}+1>9?'/static/img/user_1.png':'/static/img/user_'+${index.index+}+'.png'}"								
 								th:data-no="${vo.uid2}"class="ranks"
 							>
 							<div class="rankNum" th:text="${index.index}+1"></div>
