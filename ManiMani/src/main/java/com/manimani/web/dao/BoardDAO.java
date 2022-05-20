@@ -14,6 +14,7 @@ public class BoardDAO {
     @Autowired
     private BoardMapper mapper;
     
+    // 게시판 리스트
     public List<BoardVO> boardList(){
         return mapper.boardList();
     }

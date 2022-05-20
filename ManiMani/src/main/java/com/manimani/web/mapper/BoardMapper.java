@@ -10,6 +10,7 @@ import com.manimani.web.vo.*;
 @Mapper
 public interface BoardMapper {
     
+	// 게시판 리스트
     @Select("SELECT * FROM manimani.board")
     public List<BoardVO> boardList();
 }
