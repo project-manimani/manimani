@@ -13,10 +13,10 @@ import com.manimani.web.vo.*;
 @RequestMapping("/letter")
 public class LetterController {
     
-    @RequestMapping("/main")
+    @RequestMapping("/letter")
     public String group(Model model) {
         
-        model.addAttribute("letter_content", "letter/main");
+        model.addAttribute("letter_content", "letter/letter");
         return "letter/letter_template";  
     }
 }
