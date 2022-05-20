@@ -19,6 +19,7 @@ public class MatchingDAO {
 	}
 	
 	//My마니또 찾기
+	//1.본인이 포함된 그룹 유저리스트 출력
 	
 
 }

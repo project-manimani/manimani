@@ -11,7 +11,7 @@
 
 <script>
 		$(document).ready(function() {
-			$('.oneUser').slick({
+			$('.makeOverflow').slick({
 				prevArrow : $(".lefter"),
 				nextArrow : $(".righter"),
 				infinite : true,
@@ -34,8 +34,11 @@
 				<div class="oneUser" th:each="vo,index:${test}">
 						<div class="poster">
 							<img th:title="${index.index}+1"
-          						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + ${index.index} + '.png'"
+          						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
          						th:data-no="${vo.uid2}">
+         					<img th:title="${index.index}+1"
+          						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
+         						th:data-no="${vo.uid1}">
 							
 						</div>
 						<p class="rankTitle" th:text="${vo.uid2}"></p>
