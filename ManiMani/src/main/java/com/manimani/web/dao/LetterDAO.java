@@ -12,6 +12,7 @@ public class LetterDAO {
 	@Autowired
 	private LetterMapper mapper;
 	
+		// letter 목록
 		public List<LetterVO> letterList() {
 		return mapper.letterList();
 	}

@@ -22,5 +22,5 @@ public class LetterVO {
     private String receiver;
     private String content;
     private Date regdate;
-    private int view;
+    private int view;	// 1이면 보임, 0이면 숨기기
 }
