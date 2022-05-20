@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+/* 폰트 색상 */
+.clwhite {
+  color: white;
+}
+
+.clblack {
+  color: black;
+}
+
+.clfont {
+  color: #494949;
+}
+
 .cl01 {
   color: #fd9c87;
 }
@@ -36,6 +49,7 @@
   color: #98d5f4;
 }
 
+/* 배경 색상 */
 .bg01 {
   background-color: #fd9c87;
 }
