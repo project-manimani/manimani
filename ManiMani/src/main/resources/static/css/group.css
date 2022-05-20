@@ -1,1 +1,125 @@
 @charset "UTF-8";
+body{
+	background-color: #fff7ee;
+}
+.gList{
+	position:absolute;
+	width:1300px;
+	height:900px;
+	left:150px;
+	margin: 0px auto;
+}
+.oneGroup{
+	position: relative;
+	width: 200px;
+	height:200px;
+	border-radius: 20px;
+	border: 1.5px solid #494949;
+	background-color: #fd9c87;
+	margin: 10px;
+	padding : 15px;
+	display: inline-block;
+}
+.oneGroupwithBtn{
+	position:relative;
+	width:210px;
+	height:350px;
+	margin: 15px;
+	display: inline-block;
+}
+.enterBtn{
+	position:relative;
+	width:200px;
+	height:30px;
+	left:10px;
+	border-radius: 20px;
+	border: 1.5px solid #494949;
+	background-color: none;
+}
+.gTitle{
+	position : absolute;
+	color:#bfe261;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:30px;
+	font-weight:700;
+	/* text-decoration: underline; 
+	text-underline-position:under;
+	text-underline-color:white; */
+	text-shadow: -1.5px 0 #494949, 0 1.5px #494949, 1.5px 0 #494949, 0 -1.5px #494949;
+}
+.gPlus{
+	position : absolute;
+	left:80px;
+	top:55px;
+	color:white;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:50px;
+	font-weight:700;
+	text-shadow: -1px 0 #494949, 0 1px #494949, 1px 0 #494949, 0 -1px #494949;
+}
+.gMake{
+	position : absolute;
+	color:white;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:50px;
+	font-weight:700;
+	text-shadow: -1px 0 #494949, 0 1px #494949, 1px 0 #494949, 0 -1px #494949;
+}
+.plusGroup{
+	position: relative;
+	width: 200px;
+	height:200px;
+	border-radius: 20px;
+	border: 1.5px solid #494949;
+	background-color: dcedbc;
+	margin: 10px;
+	padding : 15px;
+	display: inline-block;
+	text-align: center;
+}
+.makeGroup{
+	position: relative;
+	width: 200px;
+	height:200px;
+	border-radius: 20px;
+	border: 2px dashed #494949;
+	background-color: none;
+	margin: 15px;
+	padding : 15px;
+	display: inline-block;
+	text-align: center;
+}
+.profiles{
+	position:absolute;
+	width:200px;
+	height:50px;
+	background-color:white;
+	border-radius:0 0 20px 20px;
+	border:1.5px solid #494949;
+	bottom:-1.5px;
+	right:-1.5px;
+	color:#494949;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:15px;
+	font-weight:500;
+	padding-left : 15px;
+	padding-right : 15px;
+	padding-top : 8px;
+}
+.profilePic{
+	display: inline-block;
+	position:relative;
+	z-index:3px;
+	width:45px;
+	height:30px;
+	right:-20px;
+}
+.discrip{
+	position:relative;
+	top:50px;
+	left:0px;
+	color:#494949;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:17px;
+	font-weight:500;
+}
