@@ -17,6 +17,6 @@ public class GroupController {
     public String group(Model model) {
         
         model.addAttribute("group_content", "group/main");
-        return "group/group_template";
+        return "group/group_template";  
     }
 }
