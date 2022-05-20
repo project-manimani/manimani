@@ -3,10 +3,10 @@
 /* matching페이지 wrap */
 .matching_cnt{
 	margin: 50px;
-	font-size: 18px;
+	font-size: 15px;/*기본 15px;*/
 }
 
-/*[COLOR]*/
+/*[COLOR]-main.css참조*/
 .fc-red{color:red;}
 .fc-blue{color:blue;}
 .fc-gray{color:gray;}
@@ -22,11 +22,13 @@
    width:800px;
    height: 300px;
    overflow: hidden;
+   display: inline-block;
 }
 .makeOverflow{
    position : absolute;
    width:1500px;
    height: 250px;
+   display: inline-block;
 }
 .inline1{
    position : relative;
@@ -37,6 +39,7 @@
 .oneUser{
 	width: 220px;
 	height: 250px;
+	display: inline-block;
 }
 .poster{
    width:210px;

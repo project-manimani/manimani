@@ -7,10 +7,11 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
 <!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>  dialog 용-->
-<script type="text/javascript"src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <script>
 		$(document).ready(function() {
-			$('.makeOverflow').slick({
+			$('.oneUser').slick({
 				prevArrow : $(".lefter"),
 				nextArrow : $(".righter"),
 				infinite : true,
@@ -27,22 +28,20 @@
 	<div class="matching_cnt">
 	
 	<!-- slide -->
-		<div class="boxofficerank">
-		<img class="lefter" title="<" src="">
+	<div class="box">
+		<!-- <i class="fas fa-angle-double-left lefter"></i> -->
 		<div class="makeOverflow">
 				<div class="oneUser" th:each="vo,index:${test}">
 						<div class="poster">
-							<img th:title="${index.index}+1" 
-								th:src="@{${index.index}+1>9?'/static/img/user_1.png':'/static/img/user_'+${index.index+}+'.png'}"								
-								th:data-no="${vo.uid2}"class="ranks"
-							>
-							<div class="rankNum" th:text="${index.index}+1"></div>
+							<img th:title="${index.index}+1"
+          						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + ${index.index} + '.png'"
+         						th:data-no="${vo.uid2}">
+							
 						</div>
 						<p class="rankTitle" th:text="${vo.uid2}"></p>
 				</div>
 		</div>
-
-		<img class="righter" title=">" src="">
+		<!-- <i class="fas fa-angle-double-right righter"></i> -->
 	</div>
 	<!-- end slide -->
 	
@@ -66,3 +65,5 @@
     -->
     </div>
     <!-- end dialog -->
+</body>
+</html>
