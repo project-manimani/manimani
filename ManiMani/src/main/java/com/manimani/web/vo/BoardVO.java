@@ -7,11 +7,11 @@ import lombok.Setter;
 @Getter
 public class BoardVO {
     
-    int bid;
-    String account;
-    String title;
-    String content;
-    int visits;
-    String regdate;
-    int view;
+    private int bid;
+    private String account;
+    private String title;
+    private String content;
+    private int visits;
+    private String regdate;
+    private int view;
 }
