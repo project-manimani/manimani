@@ -38,8 +38,10 @@ ul, li {
 
 /*---------------------------------------------*/
 input, textarea, label {
-	outline: none;
-	border: 1.5px;
+  background-color: white;
+  outline: none;
+  border: 1.5px solid #494949;
+  border-radius: 20px;
 }
 
 /*---------------------------------------------*/
