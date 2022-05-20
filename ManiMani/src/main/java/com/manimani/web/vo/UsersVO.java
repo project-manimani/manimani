@@ -1,6 +1,5 @@
 package com.manimani.web.vo;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,8 +7,8 @@ import lombok.Setter;
 @Getter
 public class UsersVO {
     
-    int uid;
-    String account;
-    String password;
-    String email;
+    private int uid;
+    private String account;
+    private String password;
+    private String email;
 }
