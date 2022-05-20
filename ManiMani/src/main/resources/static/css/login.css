@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.full-h-vh {
+  height: 100vh;
+}
+
+input {
+  width: 100%;
+}
+
+.loginAreaPad {
+  border: 1.5px solid #494949;
+  border-radius: 30px;
+  padding: 30px 20px;
+}

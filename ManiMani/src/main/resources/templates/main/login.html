@@ -1,11 +1,25 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
 </head>
 <body>
-
-    <div class="fs-20"> aaa</div>
+  <div class="dis-flex flex-c-m full-w full-h-vh">
+    <div class="bgwhite loginAreaPad">
+      <h4 class="text-center p-b-15">로그인</h4>
+      <div class="p-tb-6">
+        <input class="p-tb-5 p-lr-10" type=text placeholder="아이디를 입력하세요">
+      </div>
+      <div class="p-tb-6">
+        <input class="p-tb-5 p-lr-10" type=text placeholder="비밀번호를 입력하세요">
+      </div>
+      <div class="p-tb-6">
+        <input class="p-tb-5 p-lr-10 bg05 clwhite" type=button value="로그인">
+      </div>
+    </div>
+  </div>
 </body>
 </html>
