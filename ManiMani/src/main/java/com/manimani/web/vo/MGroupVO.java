@@ -19,5 +19,6 @@ public class MGroupVO {
 	private String gname;
 	private String code;
 	private String description;
-	private Date datetime;
+	private Date regdate;
+	private Date enddate;
 }
