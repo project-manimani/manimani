@@ -20,12 +20,18 @@ public interface MatchingMapper {
 	@Select("SELECT gid "
 			+"FROM group_member "
 			+"WHERE account=#{account}")
-	public int MyGroupID(String account);		
+	public int matchingGroupID(String account);		
 	//1-2. 1결과값(gid)을 이용해서 본인을 제외한  MyGroup 모든 user 조회
 	@Select("SELECT uid1,uid2 "
 			+"FROM matching "
 			+"WHERE gid=#{gid}")
-	public List<MatchingVO> mathingUserList(int gid);	
+	public List<MatchingVO> mathingUserID(int gid);
+	
+	//2. 선택한  user 상세정보
+	@Select("SELECT * "
+			+"FROM member "
+			+"WHERE uid=#{uid}")
+	public MatchingVO matchingUserDetail(int uid);
 	
 	
 }

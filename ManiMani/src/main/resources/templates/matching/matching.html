@@ -24,49 +24,43 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 </head>
 <body>
-	<!-- side -->
+<!-- *******************************        Side         ****************************** -->
+	<!--****************************   MatchingContent   *****************************  -->
 	<div class="matching_cnt">
 	
-	<!-- slide -->
+	<!--********************  slide  ********************-->
 	<div class="box">
-		<!-- <i class="fas fa-angle-double-left lefter"></i> -->
+		<i class="lefter fas fa-angle-double-left"></i>
 		<div class="makeOverflow">
-				<div class="oneUser" th:each="vo,index:${test}">
-						<div class="poster">
-							<img th:title="${index.index}+1"
-          						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
-         						th:data-no="${vo.uid2}">
-         					<img th:title="${index.index}+1"
-          						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
-         						th:data-no="${vo.uid1}">
-							
-						</div>
-						<p class="rankTitle" th:text="${vo.uid2}"></p>
+			<div class="oneUser" th:each="vo,index:${test}">
+				<div class="poster">
+					<img th:title="${index.index}+1"
+          				th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
+         				th:data-no="${vo.uid1}"
+         			>   					
 				</div>
+				<p class="rankTitle" th:text="${vo.uid1}"></p>
+			</div>
 		</div>
-		<!-- <i class="fas fa-angle-double-right righter"></i> -->
+		
+		<i class="righter fas fa-angle-double-right"></i>
 	</div>
-	<!-- end slide -->
+	<!--******************* end slide *******************-->
+	<div>
+		<p th:text="${sessionID}"></p>
+	</div>
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- dialog -->
+	<!--*******************   dialog   *******************-->
 	<!-- 
 	<div class="box" id="dialog" th:title="" style="display:none"> 
     </div> 
     -->
+    <!--*****************   end dialog   *****************-->
+    
     </div>
-    <!-- end dialog -->
+    <!--****************************   end MatchingContent   ****************************** -->
+<!-- *******************************       Footer            ****************************** -->
 </body>
 </html>

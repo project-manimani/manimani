@@ -2,6 +2,9 @@
 
 /* matching페이지 wrap */
 .matching_cnt{
+	width:90%;
+	min-height:1000px;
+	
 	margin: 50px;
 	font-size: 15px;/*기본 15px;*/
 }
@@ -18,14 +21,14 @@
 
 /*slide*/
 .boxSlide{
-   position: absolute;
+   position: absolute;/*relative*/
    width:800px;
    height: 300px;
    overflow: hidden;
    display: inline-block;
 }
 .makeOverflow{
-   position : absolute;
+   position : absolute;/*relative*/
    width:1500px;
    height: 250px;
    display: inline-block;
