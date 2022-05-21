@@ -21,4 +21,5 @@ public class MGroupVO {
 	private String description;
 	private Date regdate;
 	private Date enddate;
+	private int num; //출력용
 }

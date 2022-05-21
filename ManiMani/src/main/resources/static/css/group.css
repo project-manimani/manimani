@@ -3,10 +3,8 @@ body{
 	background-color: #fff7ee;
 }
 .gList{
-	position:absolute;
 	width:1300px;
 	height:900px;
-	left:150px;
 	margin: 0px auto;
 }
 .oneGroup{
@@ -108,11 +106,11 @@ body{
 }
 .profilePic{
 	display: inline-block;
-	position:relative;
+	position:absolute;
 	z-index:3px;
 	width:45px;
 	height:30px;
-	right:-20px;
+	right:10px;
 }
 .discrip{
 	position:relative;

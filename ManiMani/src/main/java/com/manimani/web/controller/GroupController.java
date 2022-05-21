@@ -8,15 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import com.manimani.web.dao.*;
 import com.manimani.web.vo.*;
+import com.manimani.web.service.*;
 
 @Controller
 @RequestMapping("/group")
 public class GroupController {
+    @Autowired
+    private MGroupService service;
     
     @RequestMapping("/main")
     public String group(Model model) {
-        
+        List<MGroupVO> list = service.mGroupListData();
         model.addAttribute("group_content", "group/main");
+        model.addAttribute("list",list);
         return "group/group_template";  
     }
 }
