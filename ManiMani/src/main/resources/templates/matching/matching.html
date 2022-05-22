@@ -4,11 +4,109 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
+<style type="text/css">
+
+.contentbg {
+    margin: 0px auto;
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    border-radius: 20px;
+    background-color: #f6f8f7;
+}
+.top5 {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 90%;
+    height: 300px;
+    overflow: hidden;
+    left: 5%;
+    background-color: pink;
+    border-radius: 20px;
+}
+.makeoverflow {
+    position: absolute;
+    top: 0px;
+    margin: 0px;
+    width: 1200px;
+    height: 50%;
+}
+.onerank {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    background-color: none;
+    margin: 20px;
+    border-radius: 200px;
+    text-align: center;
+    background-color: lavender;
+    padding: 35px;
+}
+.righterPosition{
+position:absolute;
+right:30px;
+top:130px;
+z-index:3;
+width:30px;
+height:30px;
+}
+.topPoster{
+width:100%;
+height:100%;
+border-radius: 20px;
+}
+.topinfo {
+    left: 20%;
+    position: absolute;
+    bottom: 20px;
+    margin: 0px auto;
+    width: 60%;
+    height: 15%;
+    right: 20%;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 20px;
+    bottom: 10%;
+    padding: 6%;
+}
+p{
+line-height:5px; 
+}
+.title_2{
+position:absolute;
+font-size: 25px;
+font-weight: 600;
+color:#416f97;
+top:5%;
+left:5%;
+}
+</style>
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
 <!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>  dialog 용-->
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+<script>
+$(function(){
+	$('.onerank').hover(function(){
+       $(this).css("cursor","pointer")
+    },function(){
+       $(this).css("cursor","")
+    })
+    // start click => userDetail
+    $('.onerank').click(function(){
+       let uid=$(this).attr("data-no");
+       /* $.ajax({
+          type:'get',
+          url:'',
+          data:{'':},
+          success:function(res){
+             console.log(res);
+          } */
+    })
+    //end click
+})
+</script>
 <script>
 		$(document).ready(function() {
 			$('.makeOverflow').slick({
@@ -29,7 +127,7 @@
 	<div class="matching_cnt">
 	
 	<!--********************  slide  ********************-->
-	<div class="box">
+<!--	<div class="box">		
 		<i class="lefter fas fa-angle-double-left"></i>
 		<div class="makeOverflow">
 			<div class="oneUser" th:each="vo,index:${test}">
@@ -45,10 +143,41 @@
 		
 		<i class="righter fas fa-angle-double-right"></i>
 	</div>
+	
+-->	
 	<!--******************* end slide *******************-->
-	<div>
-		<p th:text="${sessionID}"></p>
+	
+	<!-- slick -->
+	<div class="container">
+		<div class="contentbg">
+			<!-- <p class="title_2">GroupName</p> -->
+			<p class="title_2" th:text="${sessionID}"></p>
+		<div class="top5">
+				<div class="righterPosition">
+					<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
+					<i class="righter fas fa-angle-double-right"></i>
+				</div>
+				
+			<div class="makeoverflow">
+				<div class="onerank" th:each="vo,index:${list}">
+					<img class="topPoster" th:title="${index.index}+1"
+						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
+         				th:data-no="${vo.uid}"
+         				>
+					<div class="topinfo">
+						<!--<h3 th:text="${vo.title.length>=8?#strings.substring(vo.title,0,8)+'...':vo.title}"></h3>-->
+						 <p th:text="${vo.account}"></p>
+						<!--<p th:text="${vo.singer.length>=8?#strings.substring(vo.singer,0,8)+'...':vo.singer}"></p> -->
+					</div>
+				</div>	
+			</div>
+			
+		</div>
+			
+			
+		</div>
 	</div>
+	<!-- end slick test -->
 	
 	
 	
@@ -62,5 +191,20 @@
     </div>
     <!--****************************   end MatchingContent   ****************************** -->
 <!-- *******************************       Footer            ****************************** -->
+<script type="text/javascript"
+		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
+
+	<script>
+		$(document).ready(function() {
+			$('.makeoverflow').slick({
+				prevArrow : $(".lefter"),
+				nextArrow : $(".righter"),
+				infinite : true,
+				speed : 300,
+				slidesToShow : 4,
+				slidesToScroll : 1
+			});
+		});
+	</script>
 </body>
 </html>
