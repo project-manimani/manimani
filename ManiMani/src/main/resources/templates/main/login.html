@@ -7,18 +7,21 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
 </head>
 <body>
-  <div class="dis-flex flex-c-m full-w full-h-vh">
+  <div class="dis-flex flex-c-m h-full">
     <div class="bgwhite loginAreaPad">
       <h4 class="text-center p-b-15">로그인</h4>
-      <div class="p-tb-6">
-        <input class="p-tb-5 p-lr-10" type=text placeholder="아이디를 입력하세요">
-      </div>
-      <div class="p-tb-6">
-        <input class="p-tb-5 p-lr-10" type=text placeholder="비밀번호를 입력하세요">
-      </div>
-      <div class="p-tb-6">
-        <input class="p-tb-5 p-lr-10 bg05 clwhite" type=button value="로그인">
-      </div>
+      
+      <form th:action="@{login_ok}" method=post>
+        <div class="p-tb-6">
+          <input class="p-tb-5 p-lr-10" type=text name=id placeholder="아이디를 입력하세요">
+        </div>
+        <div class="p-tb-6">
+          <input class="p-tb-5 p-lr-10" type=password name=password placeholder="비밀번호를 입력하세요">
+        </div>
+        <div class="p-tb-6">
+          <input class="p-tb-5 p-lr-10 bg05 clwhite" type=submit value="로그인">
+        </div>
+      </form>
     </div>
   </div>
 </body>

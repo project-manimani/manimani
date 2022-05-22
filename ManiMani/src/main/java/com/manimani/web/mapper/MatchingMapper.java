@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.manimani.web.vo.MatchingVO;
+import com.manimani.web.vo.MemberVO;
 
 @Mapper
 public interface MatchingMapper {
@@ -14,24 +15,57 @@ public interface MatchingMapper {
 	@Select("SELECT * FROM manimani.matching")
 	public List<MatchingVO> matchingList();
 	
-	//My마니또 맞추기
-	//1.본인이 포함된 그룹 유저리스트 출력
-	//1-1. 본인 해당 그룹찾기 => account(session:"userID")의 gid 조회
-	@Select("SELECT gid "
-			+"FROM group_member "
+	//session uid조회 
+	@Select("SELECT uid "
+			+"FROM manimani.member "
 			+"WHERE account=#{account}")
-	public int matchingGroupID(String account);		
-	//1-2. 1결과값(gid)을 이용해서 본인을 제외한  MyGroup 모든 user 조회
-	@Select("SELECT uid1,uid2 "
-			+"FROM matching "
-			+"WHERE gid=#{gid}")
-	public List<MatchingVO> mathingUserID(int gid);
+	public int matchingMyUid(String account);//session 
+	//MyGroup userList
+	@Select("SELECT * "
+			+"FROM manimani.member "
+			+"WHERE account IN(SELECT account "
+								+"FROM manimani.group_member "
+								+"WHERE gid=(SELECT gid "
+											+"FROM manimani.group_member "
+											+"WHERE account=#{account}) "
+							+") AND account !=#{account}")
+	public List<MemberVO> matchingMyGroupUserList(String account);//account: session_"userID"	
 	
-	//2. 선택한  user 상세정보
+	
+	//userDetail
 	@Select("SELECT * "
 			+"FROM member "
 			+"WHERE uid=#{uid}")
-	public MatchingVO matchingUserDetail(int uid);
+	public MemberVO matchingUserDetail(int uid);
 	
+	
+	//Mymanimani matching 
+	//방법 1(mid조회 코드 재사용)************************
+	//1.Mid조회
+	@Select("SELECT mid "
+			+"FROM matching "
+			+"WHERE uid1=#{uid} OR uid2=#{uid}")
+	public int matchingMid(int uid);
+	//2.본인 (param: 1결과값 )
+	@Select("SELECT mid "
+			+"FROM matching "
+			+"WHERE mid=#{mid}")
+	public int matchingMyMid(int mid);
+	//*******************************************
+	
+	//방법2****************************************
+	//1.본인 mid 조회
+	@Select("SELECT mid "
+			+"FROM matching "
+			+"WHERE mid=(SELECT mid "
+						+"FROM matching "
+						+"WHERE uid1=#{uid} OR uid2=#{uid})")
+	public int matchingMyMid2(int uid);
+	//2.상대 mid 조회
+	@Select("SELECT mid "
+			+"FROM matching "
+			+"WHERE uid1=#{uid} OR uid2=#{uid}")
+	public int matchingManiMid(int uid);
+	//*******************************************	
 	
 }
