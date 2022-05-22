@@ -1,1 +1,71 @@
 @charset "UTF-8";
+body{
+	background-color: #fff7ee;
+}
+
+.bList {
+	width: 1300px;
+	height: 900px;
+	margin: 90px auto;
+}
+
+.boardlist {
+	postion: relative;
+	width: 90%;
+	height: 720px;
+	border-radius: 30px;
+	border: 1.5px solid #494949;
+	background-color: white;
+	margin: 20px 50px auto;
+	padding : 30px;
+	display: inline-block;
+}
+
+.board_head {
+	position: relative;
+	height: 50px;
+	font-size: 40px;
+	color: #93b8ef;
+	font-family: 'Noto Sans KR', sans-serif;
+	text-align: center;
+	margin: 20px 0px 50px 0px;
+}
+
+.table_whole {
+	text-align: center;
+	margin: auto;
+}
+
+.column-1 {
+  width: 150px;
+  height: 30px;
+  text-align: center;
+}
+
+.column-2 {
+  width: 150px;
+  height: 30px;
+  text-align: center;
+}
+
+.column-3 {
+  width: 350px;
+  height: 30px;
+  text-align: center;
+}
+
+.column-4 {
+  width: 200px;
+  height: 30px;
+  text-align: center;
+}
+
+.column-5 {
+  width: 150px;
+  height: 30px;
+  text-align: center;
+}
+
+.table_content {
+	
+}

@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/board.css}">
 </head>
 <body>
-
-    <div class="fs-20"> aaa</div>
+  <div class="dis-flex flex-c-m bList">
+    <div class="boardlist">
+      <div class="board_head">자유게시판</div>
+      <table class="table_whole">
+        <tr class="fs-18 m-b-10">
+          <th class="column-1">글 번호</th>
+          <th class="column-2">받는 사람</th>
+          <th class="column-3">제목</th>
+          <th class="column-4">게시일</th>
+          <th class="column-5">조회수</th>
+        </tr>
+        <tr>
+          <td class="table_content" th:each="vo:${bid}">1</td>
+          <td class="table_content" th:each="vo:${receiver}">1</td>
+          <td class="table_content" th:each="vo:${title}">1</td>
+          <td class="table_content" th:each="vo:${regdate}">1</td>
+          <td class="table_content" th:each="vo:${visits}">1</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </body>
 </html>
