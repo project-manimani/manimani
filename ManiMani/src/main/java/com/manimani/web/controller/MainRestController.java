@@ -3,6 +3,7 @@ package com.manimani.web.controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,11 +13,6 @@ import com.manimani.web.dao.*;
 public class MainRestController {
     
     @Autowired
-    private UsersDAO dao;
+    private MemberDAO dao;
 
-    @GetMapping("/users/test")
-    public String main() {
-        
-        return "yes";
-    }
 }

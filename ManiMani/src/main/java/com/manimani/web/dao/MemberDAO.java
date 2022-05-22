@@ -9,12 +9,16 @@ import com.manimani.web.vo.*;
 import com.manimani.web.mapper.*;
 
 @Repository
-public class UsersDAO {
+public class MemberDAO {
     
     @Autowired
-    private UsersMapper mapper;
+    private MemberMapper mapper;
     
-    public List<UsersVO> userList(){
-        return mapper.userList();
+    public int login(String account){
+        return mapper.login(account);
+    }
+    
+    public String getPassword(String account) {
+        return mapper.getPassword(account);
     }
 }
