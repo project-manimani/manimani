@@ -21,6 +21,7 @@ public class GroupController {
         List<MGroupVO> list = service.mGroupListData();
         model.addAttribute("group_content", "group/main");
         model.addAttribute("list",list);
+        model.addAttribute("id","임시아이디");
         return "group/group_template";  
     }
 }

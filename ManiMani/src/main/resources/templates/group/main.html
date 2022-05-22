@@ -3,6 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.dialogbg{
+	width:100%;
+	height:100%;
+	border-radius: 30px;
+	border: 1.5px solid #494949;
+	background-color: #e9fbff;
+}
+[title]{
+	display:none;
+}
+</style>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+     
+    /* $( "#dialog" ).dialog(); */
+    $('.plusGroup').hover(function(){
+       $(this).css("cursor","pointer")
+    },function(){
+       $(this).css("cursor","")
+    })
+    
+    // 아이콘 클릭시 처리 
+    $('.plusGroup').click(function(){
+       let no=$(this).attr("data-id");
+       $.ajax({
+          /* type:'get', */
+          /* url:'/makegroup', */
+          /* data:{'id':id}, */
+          success:function(res)
+          {
+             console.log(res);
+             
+            /*  //let json=JSON.parse(res);
+             $('#youtube').attr("src","http://youtube.com/embed/"+res.youtube)
+             $('#lyric').text(res.lyric) */
+             
+             $('#dialog').dialog({
+                autoOpen:false,
+                width:600,
+                height:600,
+                modal:true
+             }).dialog("open");
+          }
+       })
+    })
+})
+</script>
 </head>
 <body>
 	<div class="gList dis-flex flex-c-m">
@@ -19,7 +70,7 @@
 	</div>
 	
 	<div class="oneGroupwithBtn">	
-		<button class="plusGroup">
+		<button class="plusGroup" th:data-id="${id}">
 			<p class="gPlus">+</p>
 		</button>
 		<button class="enterBtn">그룹 추가하기</button>
@@ -27,6 +78,13 @@
 		<!-- <div class="makeGroup">
 			<p class="gMake">+</p>
 		</div> -->
+	</div>
+	
+	
+	<div class="dialog" id="dialog" style="display:none"> 
+		<div class="dialogbg">
+					
+		</div>
 	</div>
 </body>
 </html>
