@@ -11,8 +11,6 @@ import com.manimani.web.vo.MemberVO;
 
 @Service
 public interface MatchingService {
-	//test
-	public List<MatchingVO> matchingList();
 	//MyGroup userList
 	public List<MemberVO> matchingMyGroupUserList(String account);
 	//userDetail

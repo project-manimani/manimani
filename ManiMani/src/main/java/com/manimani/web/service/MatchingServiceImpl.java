@@ -14,28 +14,18 @@ public class MatchingServiceImpl implements MatchingService{
 	@Autowired
 	private MatchingDAO mdao;
 
-	//test
-	@Override
-	public List<MatchingVO> matchingList() {
-		// TODO Auto-generated method stub
-		return mdao.matchingList();
-	}
-
 	@Override
 	public List<MemberVO> matchingMyGroupUserList(String account) {
-		// TODO Auto-generated method stub
 		return mdao.matchingMyGroupUserList(account);
 	}
 
 	@Override
 	public MemberVO matchingUserDetail(int uid) {
-		// TODO Auto-generated method stub
 		return mdao.matchingUserDetail(uid);
 	}
 
 	@Override
 	public int matchingMymanimani(String account, int uid) {
-		// TODO Auto-generated method stub
 		return mdao.matchingMymanimani(account, uid);
 	}
 	

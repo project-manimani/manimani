@@ -5,25 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <style type="text/css">
-
-.contentbg {
+.wrap-uList {
     margin: 0px auto;
     width: 80%;
     height: 40%;
     position: absolute;
     border-radius: 20px;
-    background-color: #f6f8f7;
+    border: 1.5px solid #494949;
+    min-height: 900px;
+    background-color: #93b8ef;
 }
-.top5 {
+.mgUserList {
     position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 90%;
+    top: 80px;
+    right: 2%;
+    width: 96%;
     height: 300px;
     overflow: hidden;
-    left: 5%;
-    background-color: pink;
+    left: 2%;
+    background-color: #fff7ee;
     border-radius: 20px;
+    border: 1.5px solid #494949;
 }
 .makeoverflow {
     position: absolute;
@@ -32,32 +34,32 @@
     width: 1200px;
     height: 50%;
 }
-.onerank {
+.circleWrap {
     position: relative;
     display: inline-block;
     width: 250px;
     height: 250px;
-    background-color: none;
     margin: 20px;
     border-radius: 200px;
     text-align: center;
-    background-color: lavender;
+    background-color: #fd9;
     padding: 35px;
+    border: 1.5px solid #494949;
 }
 .righterPosition{
-position:absolute;
-right:30px;
-top:130px;
-z-index:3;
-width:30px;
-height:30px;
+	position:absolute;
+	right:30px;
+	top:130px;
+	z-index:3;
+	width:30px;
+	height:30px;
 }
-.topPoster{
-width:100%;
-height:100%;
-border-radius: 20px;
+.poster{
+	width:100%;
+	height:100%;
+	border-radius: 20px;
 }
-.topinfo {
+.userInfo {
     left: 20%;
     position: absolute;
     bottom: 20px;
@@ -65,36 +67,84 @@ border-radius: 20px;
     width: 60%;
     height: 15%;
     right: 20%;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255,255,255,0.8);
     border-radius: 20px;
     bottom: 10%;
     padding: 6%;
+    border: 1.5px solid #494949;
 }
 p{
-line-height:5px; 
+	line-height:5px; 
 }
-.title_2{
-position:absolute;
-font-size: 25px;
-font-weight: 600;
-color:#416f97;
-top:5%;
-left:5%;
+.font-h{
+	position:absolute;
+	font-size: 25px;
+	font-weight: 600;
+	font-style: oblique;
+	color:#fff7ee;
+	top:20px;;
+	left:5%;
 }
+.height-45{
+    position: absolute;
+    font-size: 23px;
+    font-weight:600;
+    color: #fff7ee;
+    top: 45%;
+    right: 5%;
+}
+/****** 내 프로필   ******/
+.wrap-myImg{
+    width: 250px;
+    height: 300px;
+    margin-left: 5%;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: 1.5px solid #494949;
+    background-color: #fff7ee;
+}
+.myImg{
+	width: 218px;
+    margin-left: 5%;
+    margin-top: 28px;
+}
+
+.myInfo{
+	position: absolute;
+    border-radius: 20px;
+    border: 1.5px solid #494949;
+    min-height: 380px;
+    width: 42.25%;
+    margin-top: 468px;
+    left:5%;
+    background-color: #dcedbc;
+}
+
+.maniInfo{
+    position: absolute;
+    border-radius: 20px;
+    border: 1.5px solid #494949;
+    min-height: 380px;
+    width: 42.25%;
+    margin-top: 468px;
+    margin-left: 20px;
+    right:5%;
+    background-color: #dcedbc;
+}
+/********************/
 </style>
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
 <!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>  dialog 용-->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
 $(function(){
-	$('.onerank').hover(function(){
+	$('.circleWrap').hover(function(){
        $(this).css("cursor","pointer")
     },function(){
        $(this).css("cursor","")
     })
     // start click => userDetail
-    $('.onerank').click(function(){
+    $('.circleWrap').click(function(){
        let uid=$(this).attr("data-no");
        /* $.ajax({
           type:'get',
@@ -108,76 +158,60 @@ $(function(){
 })
 </script>
 <script>
-		$(document).ready(function() {
-			$('.makeOverflow').slick({
-				prevArrow : $(".lefter"),
-				nextArrow : $(".righter"),
-				infinite : true,
-				speed : 300,
-				slidesToShow : 4,
-				slidesToScroll : 1
-			});
+	$(document).ready(function() {
+		$('.makeOverflow').slick({
+			prevArrow : $(".lefter"),
+			nextArrow : $(".righter"),
+			infinite : true,
+			speed : 300,
+			slidesToShow : 4,
+			slidesToScroll : 1
 		});
+	});
 </script>
-<link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 </head>
 <body>
 <!-- *******************************        Side         ****************************** -->
 	<!--****************************   MatchingContent   *****************************  -->
 	<div class="matching_cnt">
-	
-	<!--********************  slide  ********************-->
-<!--	<div class="box">		
-		<i class="lefter fas fa-angle-double-left"></i>
-		<div class="makeOverflow">
-			<div class="oneUser" th:each="vo,index:${test}">
-				<div class="poster">
-					<img th:title="${index.index}+1"
-          				th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
-         				th:data-no="${vo.uid1}"
-         			>   					
-				</div>
-				<p class="rankTitle" th:text="${vo.uid1}"></p>
-			</div>
-		</div>
-		
-		<i class="righter fas fa-angle-double-right"></i>
-	</div>
-	
--->	
-	<!--******************* end slide *******************-->
-	
-	<!-- slick -->
-	<div class="container">
-		<div class="contentbg">
-			<!-- <p class="title_2">GroupName</p> -->
-			<p class="title_2" th:text="${sessionID}"></p>
-		<div class="top5">
-				<div class="righterPosition">
-					<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
-					<i class="righter fas fa-angle-double-right"></i>
-				</div>
+		<div class="container flex-c">
+			<div class="wrap-uList flex-c">
+				<div class="font-h">GroupName그룹 회원목록</div>
 				
-			<div class="makeoverflow">
-				<div class="onerank" th:each="vo,index:${list}">
-					<img class="topPoster" th:title="${index.index}+1"
-						th:src="${index.index}+1>10?@{/img/matching/user_1.png}:@{/img/matching/user_} + (${index.index}+1) + '.png'"
-         				th:data-no="${vo.uid}"
-         				>
-					<div class="topinfo">
-						<!--<h3 th:text="${vo.title.length>=8?#strings.substring(vo.title,0,8)+'...':vo.title}"></h3>-->
-						 <p th:text="${vo.account}"></p>
-						<!--<p th:text="${vo.singer.length>=8?#strings.substring(vo.singer,0,8)+'...':vo.singer}"></p> -->
+				<!--********************  slick(slide)  ********************-->
+				<div class="mgUserList">
+					<div class="righterPosition">
+						<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
+						<i class="righter fas fa-angle-double-right"></i>
 					</div>
-				</div>	
+					<div class="makeoverflow">
+						<div class="circleWrap" th:each="vo,index:${list}">
+							<img class="poster" th:title="${vo.account}"
+								th:src="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
+         						th:data-no="${vo.uid}"
+         					>
+						<div class="userInfo">
+							 <p th:text="${vo.account}"></p>
+							<!--<p th:text="${vo.account.length>=10?#strings.substring(vo.account,0,10)+'...':vo.account}"></p> -->
+						</div>
+					</div>	
+				</div>
 			</div>
-			
-		</div>
-			
-			
+			<!-- **********************  end slide  ********************** -->
+			<div class="height-45"><span class="fs-25" th:text="${sessionID}"></span>님의 마니또 라고 생각하는 상대를 클릭해보세요 : )</div>
+			<div class="myInfo">
+				<div class="wrap-myImg ">
+					<img class="myImg" th:src="@{/img/matching/user_6.png}">
+				</div>
+				<div class="account" th:text="${sessionID}"></div>
+			</div>
+			<div class="maniInfo">
+				<a href="https://www.flaticon.com/kr/free-icons" title="물음표 아이콘"></a>
+			</div>			
 		</div>
 	</div>
-	<!-- end slick test -->
+	
+	
 	
 	
 	
@@ -186,25 +220,22 @@ $(function(){
 	<div class="box" id="dialog" th:title="" style="display:none"> 
     </div> 
     -->
-    <!--*****************   end dialog   *****************-->
-    
+    <!--*****************   end dialog   *****************-->    
     </div>
     <!--****************************   end MatchingContent   ****************************** -->
 <!-- *******************************       Footer            ****************************** -->
-<script type="text/javascript"
-		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
-
-	<script>
-		$(document).ready(function() {
-			$('.makeoverflow').slick({
-				prevArrow : $(".lefter"),
-				nextArrow : $(".righter"),
-				infinite : true,
-				speed : 300,
-				slidesToShow : 4,
-				slidesToScroll : 1
-			});
+<script type="text/javascript"src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
+<script>
+	$(document).ready(function() {
+		$('.makeoverflow').slick({
+			prevArrow : $(".lefter"),
+			nextArrow : $(".righter"),
+			infinite : true,
+			speed : 300,
+			slidesToShow : 4,
+			slidesToScroll : 1
 		});
-	</script>
+	});
+</script>
 </body>
 </html>

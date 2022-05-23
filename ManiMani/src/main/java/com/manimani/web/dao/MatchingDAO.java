@@ -14,11 +14,6 @@ public class MatchingDAO {
 	@Autowired
 	private MatchingMapper mapper;
 	
-	//test * 출력
-	public List<MatchingVO> matchingList(){
-		return mapper.matchingList();
-	}
-	
 	//MyGroup userList
 	public List<MemberVO> matchingMyGroupUserList(String account) {//account:session_"userID"
 		List<MemberVO> list=mapper.matchingMyGroupUserList(account);
