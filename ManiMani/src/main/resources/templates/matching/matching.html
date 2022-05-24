@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <style type="text/css">
+/***** slide  *****/
 .wrap-uList {
     margin: 0px auto;
     width: 80%;
@@ -93,7 +94,8 @@ p{
     top: 45%;
     right: 5%;
 }
-/****** 내 프로필   ******/
+/*****  end slide  *****/
+/***** 내 프로필   *****/
 .wrap-myImg{
     width: 250px;
     height: 300px;
@@ -108,7 +110,6 @@ p{
     margin-left: 5%;
     margin-top: 28px;
 }
-
 .myInfo{
 	position: absolute;
     border-radius: 20px;
@@ -119,7 +120,6 @@ p{
     left:5%;
     background-color: #dcedbc;
 }
-
 .maniInfo{
     position: absolute;
     border-radius: 20px;
@@ -131,11 +131,12 @@ p{
     right:5%;
     background-color: #dcedbc;
 }
-/********************/
+/*****  end 내프로필   *****/
+
 </style>
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
-<!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>  dialog 용-->
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>
 $(function(){
 	$('.circleWrap').hover(function(){
@@ -143,31 +144,72 @@ $(function(){
     },function(){
        $(this).css("cursor","")
     })
+    /*maniImg default*/
+    $('#maniImg').attr("src","/img/matching/물음표.png");
+	
     // start click => userDetail
-    $('.circleWrap').click(function(){
-       let uid=$(this).attr("data-no");
-       /* $.ajax({
-          type:'get',
-          url:'',
-          data:{'':},
-          success:function(res){
-             console.log(res);
-          } */
-    })
-    //end click
-})
+    $('.poster').click(function(){
+		let uid=$(this).attr("data-uid");
+		let uimg=$(this).attr("data-img");
+       	console.log('clickUserID:'+uid+' ## userImg:'+uimg);//
+       	$.ajax({
+        	type:'post',
+        	url:'userDetail',
+        	data:{"userID":uid},
+          	success:function(res){
+            	console.log("success: "+res.account+' ## uimg:'+uimg);//
+            	$('#maniImg').attr("src",uimg);
+            	console.log("maniImg:"+$('#maniImg').attr("src"));
+            	$('#matchingBtn').attr("data-mUid",res.uid);
+            	$('#maniAccount').text(res.account);
+            	$('#maniEmail').text(res.email);
+            	$('.mbtn').show();
+          	}
+   		})//end ajax
+	})//end click.poster
+	$('#matchingBtn').click(function(){
+		let maniUid=$(this).attr("data-mUid");
+		console.log("maniUid: "+maniUid);
+		$.ajax({
+			type:'post',
+			url:'matchingCheck',
+			data:{"maniUid":maniUid},
+			success:function(res){
+				console.log("success: "+res);
+				if(res=='T'){
+					$('#check').text("마니도 추측 성공!! 당신의 마니또에게 고마움을 전해보세요:)");
+					$('#sendEmail').show();
+					/*'개인편지함>편지쓰기'로 이동 */
+				}else{
+					$('#check').text("maniAccount님은 당신의 마니또가 아닙니다. 다음 기회에 다시 도전해보세요 :)")
+					$('#sendEmail').hide();
+					/*기능추가시) 남은 도전기회:count 또는 다음도전일자 */
+					/*cookie등록 => 선택자제외 */
+				}
+				$('#dialog').dialog({
+    				autoOpen:false,
+    				width:500,
+    				height:400,
+    				modal:true
+    			}).dialog("open");
+			}
+		})//ajax
+	})//end click#matchingBtn
+})//end function
 </script>
 <script>
-	$(document).ready(function() {
-		$('.makeOverflow').slick({
-			prevArrow : $(".lefter"),
-			nextArrow : $(".righter"),
-			infinite : true,
-			speed : 300,
-			slidesToShow : 4,
-			slidesToScroll : 1
-		});
+$(document).ready(function() {
+	/***** slide *****/
+	$('.makeOverflow').slick({
+		prevArrow : $(".lefter"),
+		nextArrow : $(".righter"),
+		infinite : true,
+		speed : 300,
+		slidesToShow : 4,
+		slidesToScroll : 1
 	});
+	/*****  end slide  *****/
+});
 </script>
 </head>
 <body>
@@ -176,8 +218,7 @@ $(function(){
 	<div class="matching_cnt">
 		<div class="container flex-c">
 			<div class="wrap-uList flex-c">
-				<div class="font-h">GroupName그룹 회원목록</div>
-				
+				<div class="font-h">GroupName그룹 회원목록</div>				
 				<!--********************  slick(slide)  ********************-->
 				<div class="mgUserList">
 					<div class="righterPosition">
@@ -188,7 +229,7 @@ $(function(){
 						<div class="circleWrap" th:each="vo,index:${list}">
 							<img class="poster" th:title="${vo.account}"
 								th:src="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
-         						th:data-no="${vo.uid}"
+         						th:data-uid="${vo.uid}" th:data-img="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
          					>
 						<div class="userInfo">
 							 <p th:text="${vo.account}"></p>
@@ -198,7 +239,9 @@ $(function(){
 				</div>
 			</div>
 			<!-- **********************  end slide  ********************** -->
-			<div class="height-45"><span class="fs-25" th:text="${sessionID}"></span>님의 마니또 라고 생각하는 상대를 클릭해보세요 : )</div>
+			<div class="height-45"><span class="fs-25" th:text="${sessionID}"></span>님의 마니또 라고 생각하는 상대를 클릭해보세요 : )  
+				<button class="mbtn" id="matchingBtn" data-mUid="maniUid">확인</button>
+			</div>
 			<div class="myInfo">
 				<div class="wrap-myImg ">
 					<img class="myImg" th:src="@{/img/matching/user_6.png}">
@@ -206,21 +249,22 @@ $(function(){
 				<div class="account" th:text="${sessionID}"></div>
 			</div>
 			<div class="maniInfo">
-				<a href="https://www.flaticon.com/kr/free-icons" title="물음표 아이콘"></a>
+				<div class="wrap-myImg ">
+					<img class="myImg" id="maniImg" >
+				</div>
+				<div class="account">
+					<p id="maniAccount"></p><br>
+					<p id="maniEmail"></p>
+				</div>
 			</div>			
 		</div>
 	</div>
-	
-	
-	
-	
-	
 	<!--*******************   dialog   *******************-->
-	<!-- 
-	<div class="box" id="dialog" th:title="" style="display:none"> 
-    </div> 
-    -->
-    <!--*****************   end dialog   *****************-->    
+	<div class="box" id="dialog" style="display:none"><!-- title대입 예정 -->
+	 <div id="check"></div>
+	 <a id="sendEmail" href="../letter/letter" style="display: none">개인편지함으로 이동</a>
+   	</div>
+   	<!--*****************   end dialog   *****************-->    
     </div>
     <!--****************************   end MatchingContent   ****************************** -->
 <!-- *******************************       Footer            ****************************** -->

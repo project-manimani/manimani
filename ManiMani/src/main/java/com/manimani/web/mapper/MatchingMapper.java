@@ -44,8 +44,8 @@ public interface MatchingMapper {
 	//1.Mid조회
 	@Select("SELECT mid "
 			+"FROM matching "
-			+"WHERE uid1=#{uid} OR uid2=#{uid}")
-	public int matchingMid(int uid);
+			+"WHERE uid1=#{uid1} OR uid2=#{uid2}")
+	public int matchingMid(int uid1,int uid2);
 	//2.본인 (param: 1결과값 )
 	@Select("SELECT mid "
 			+"FROM matching "
@@ -53,19 +53,19 @@ public interface MatchingMapper {
 	public int matchingMyMid(int mid);
 	//*******************************************
 	
-	//방법2****************************************
-	//1.본인 mid 조회
-	@Select("SELECT mid "
-			+"FROM matching "
-			+"WHERE mid=(SELECT mid "
-						+"FROM matching "
-						+"WHERE uid1=#{uid} OR uid2=#{uid})")
-	public int matchingMyMid2(int uid);
-	//2.상대 mid 조회
-	@Select("SELECT mid "
-			+"FROM matching "
-			+"WHERE uid1=#{uid} OR uid2=#{uid}")
-	public int matchingManiMid(int uid);
-	//*******************************************	
+//	//방법2****************************************
+//	//1.본인 mid 조회
+//	@Select("SELECT mid "
+//			+"FROM matching "
+//			+"WHERE mid=(SELECT mid "
+//						+"FROM matching "
+//						+"WHERE uid1=#{uid} OR uid2=#{uid})")
+//	public int matchingMyMid2(int uid);
+//	//2.상대 mid 조회
+//	@Select("SELECT mid "
+//			+"FROM matching "
+//			+"WHERE uid1=#{uid} OR uid2=#{uid}")
+//	public int matchingManiMid(int uid);
+//	//*******************************************	
 	
 }

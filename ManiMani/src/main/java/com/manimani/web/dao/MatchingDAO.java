@@ -30,10 +30,10 @@ public class MatchingDAO {
 		int maniCheck=-1;
 		//본인 mid 조회
 		int myUid=mapper.matchingMyUid(account);
-		int mid=mapper.matchingMid(myUid);
+		int mid=mapper.matchingMid(myUid,myUid);
 		int MyMid=mapper.matchingMyMid(mid);
 		//선택 상대 mid 조회
-		int MyMani=mapper.matchingMid(uid);
+		int MyMani=mapper.matchingMid(uid,uid);
 		if(MyMid==MyMani) {
 			maniCheck=1;
 		}
