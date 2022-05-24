@@ -1,7 +1,5 @@
 package com.manimani.web.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +19,14 @@ public class BoardController {
 	// 게시판 목록
 	@RequestMapping("/board")
 	public String board(Model model) {
-        List<BoardVO> list = service.boardList();
-        model.addAttribute("board_content", "board/board");
+		Map map = new HashMap();
+        List<BoardVO> list = service.boardListData(map);
         model.addAttribute("list",list);
-        return "board/board_template";  
+        model.addAttribute("board_content", "board/board");
+        return "board/board_template";
     }
+	/*@GetMapping("/board")
+	public String board_list() {
+		return "board/board_template";
+	}*/	
 }
