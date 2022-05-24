@@ -8,6 +8,7 @@ import lombok.Setter;
 public class BoardVO {
     
     private int bid;
+    private int gid;
     private String account;
     private String title;
     private String content;

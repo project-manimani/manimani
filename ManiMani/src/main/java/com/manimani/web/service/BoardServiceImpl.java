@@ -14,10 +14,9 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardDAO dao;
 
-	//test
 	@Override
-	public List<BoardVO> boardList() {
+	public List<BoardVO> boardListData(Map map) {
 		// TODO Auto-generated method stub
-		return dao.boardList();
+		return dao.boardList(map);
 	}
 }
