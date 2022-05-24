@@ -121,3 +121,24 @@ body{
 	font-size:17px;
 	font-weight:500;
 }
+
+/***********************************************************/
+/* 그룹만드는 모달창 CSS */
+.makeBtn{
+	position:relative;
+	width:100px;
+	height:30px;
+	left:50%;
+	border-radius: 20px;
+	border: 1.5px solid #494949;
+	background-color: #7cdda6;
+}
+.cancelBtn{
+	position:relative;
+	width:100px;
+	height:30px;
+	left:50%;
+	border-radius: 20px;
+	border: 1.5px solid #494949;
+	background-color: #dcedbc;
+}
