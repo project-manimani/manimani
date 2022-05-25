@@ -83,12 +83,25 @@
 	
 	<div class="dialog" id="dialog" style="display:none"> 
 		<div class="dialogbg">
-			<div>그룹이름</div>
-			
-			<div>
-				<button class="makeBtn">만들기</button>
+		 <form method="post">
+			<div class="dialogTitle">그룹이름</div>
+				<input type=text>
+			<div class="dialogTitle">그룹설명</div>
+				<input type=text>
+			<div class="dialogTitle">그룹인원</div>
+				<input type="number">
+			<div class="dialogTitle">기간</div>
+				<input type="text" id="dt" name="dt" maxlength="10" th:value="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd HH:mm')}" readonly>
+				~
+							<!-- 날짜만 할거면
+							<input type="date">
+							-->
+				<input type="datetime-local">	<!-- 시작시간보다 앞일 경우 알림 표시 -->
+			<div class="dialogTitle">
+				<button class="makeBtn">생성하기</button>
 				<button class="cancelBtn">취소</button>
 			</div>
+		 </form>
 		</div>
 	</div>
 </body>

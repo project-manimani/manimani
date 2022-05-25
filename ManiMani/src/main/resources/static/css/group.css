@@ -128,7 +128,7 @@ body{
 	position:relative;
 	width:100px;
 	height:30px;
-	left:50%;
+	left:30%;
 	border-radius: 20px;
 	border: 1.5px solid #494949;
 	background-color: #7cdda6;
@@ -137,8 +137,11 @@ body{
 	position:relative;
 	width:100px;
 	height:30px;
-	left:50%;
+	left:35%;
 	border-radius: 20px;
 	border: 1.5px solid #494949;
 	background-color: #dcedbc;
+}
+.dialogTitle{
+	margin-top:20px;
 }
