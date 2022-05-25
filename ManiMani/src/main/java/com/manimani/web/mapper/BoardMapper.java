@@ -21,17 +21,20 @@ public interface BoardMapper {
     private int view;*/
 	
 	// 게시판 리스트
-    @Select("SELECT bid,gid,account,title,content,regdate,visits "
-    		+ "FROM (SELECT bid,gid,account,title,content,regdate,visits,rownum as num "
-    				+ "FROM (SELECT /*+ INDEX_DESC(board board_bid_pk)*/bid,gid,account,title,content,regdate,visits "
-    						+ "FROM board "
-    						+ "WHERE gid=#{gid})) "
-    		+ "WHERE num BETWEEN #{start} AND #{end}")
-	public List<BoardVO> boardList(Map map);
+    //@Select("SELECT bid,gid,account,title,content,regdate,visits "
+    //		+ "FROM (SELECT bid,gid,account,title,content,regdate,visits,rownum as num "
+    //				+ "FROM (SELECT /*+ INDEX_DESC(board board_bid_pk)*/bid,gid,account,title,content,regdate,visits "
+    //						+ "FROM board "
+    //						+ "WHERE gid=#{gid})) "
+    //		+ "WHERE num BETWEEN #{start} AND #{end}")
+	//public List<BoardVO> boardList(Map map);
+	@Select("SELECT * FROM board "
+			+ "WHERE gid=#{gid}")
+	public List<BoardVO> boardList(int gid);
     
     // 게시판 개수
-    @Select("SELECT COUNT(*) FROM board")
-    public int boardCount();
+    /*@Select("SELECT COUNT(*) FROM board")
+    public int boardCount();*/
     
     // 게시판 총페이지 개수
     @Select("SELECT CEIL(COUNT(*)/10.0 FROM board")

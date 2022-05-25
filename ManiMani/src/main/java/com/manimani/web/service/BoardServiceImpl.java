@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.manimani.web.dao.*;
-import com.manimani.web.vo.BoardVO;
+import com.manimani.web.vo.*;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -15,8 +15,22 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO dao;
 
 	@Override
-	public List<BoardVO> boardListData(Map map) {
-		// TODO Auto-generated method stub
-		return dao.boardList(map);
+	public List<BoardVO> boardListData(int gid) {
+		return dao.boardList(gid);
+	}
+	
+	@Override
+	public int boardTotalPage() {
+		return dao.boardTotalPage();
+	}
+	
+	@Override
+	public void boardInsertData(BoardVO vo) {
+		return;
+	}
+	
+	@Override
+	public BoardVO boardDetailData(int bid) {
+		return dao.boardDetailData(bid);
 	}
 }

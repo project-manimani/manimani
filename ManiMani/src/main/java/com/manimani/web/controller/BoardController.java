@@ -18,15 +18,15 @@ public class BoardController {
 	
 	// 게시판 목록
 	@RequestMapping("/board")
-	public String board(Model model) {
-		Map map = new HashMap();
-        List<BoardVO> list = service.boardListData(map);
+	public String board(int gid, Model model) {
+        List<BoardVO> list = service.boardListData(gid);
         model.addAttribute("list",list);
         model.addAttribute("board_content", "board/board");
         return "board/board_template";
     }
-	/*@GetMapping("/board")
+	
+	@GetMapping("/board")
 	public String board_list() {
 		return "board/board_template";
-	}*/	
+	}
 }
