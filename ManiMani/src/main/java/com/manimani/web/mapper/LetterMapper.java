@@ -18,13 +18,13 @@ public interface LetterMapper {
 	@Select("SELECT * FROM letter "
 			+"WHERE receiver =#{receiver} "
 			+"AND gid=#{gid} ")
-	public List<LetterVO> receiveLetterList(String receiver);
+	public List<LetterVO> receiveList(String receiver);
 	
 	/* 보낸편지 리스트, 보내는 사람이 session과 같을때 */
 	@Select("SELECT * FROM letter "
 			+"WHERE sender=#{sender} "
 			+"AND gid=#{gid}")
-	public List<LetterVO> sendLetterList(String sender);
+	public List<LetterVO> sendList(String sender);
 	
 	/* 편지페이징 */
 	@Select("SELECT CEIL(COUNT(*) / 10.0) "

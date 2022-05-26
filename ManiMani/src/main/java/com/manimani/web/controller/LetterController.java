@@ -17,21 +17,24 @@ import com.manimani.web.vo.*;
 @Controller
 @RequestMapping("/letter")
 public class LetterController {
-    @Autowired
-    private LetterService service;
+	@Autowired
+	private LetterService service;
 	
-    @RequestMapping("/letter")
-    public String group(HttpServletRequest request, Model model) {
-    	// 로그인 내역 확인
-    	HttpSession session = request.getSession();
-    	session.setAttribute("userID","admin1");	//임시
-    	
-    	
-    	// letter 목록조회
-        List<LetterVO> list = service.letterList();
-    	
-        model.addAttribute("letter_content", "letter/letter");
-        model.addAttribute("list",list);
-        return "letter/letter_template";  
-    }
+	@Autowired
+	private LetterDAO dao;
+	
+	/* 받은편지 목록 */
+	@GetMapping("letter")
+	public String receivelist(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		// 편지받은 아이디
+		String receiver = ((String) session.getAttribute("receiver"));
+		if( receiver == null )
+			return "redirece:../login";
+		// List<LetterVO> rlist = service.receiveList(receiver);
+		
+		model.addAttribute("receiver",receiver);
+		model.addAttribute("letter_content", "letter/letter");
+		return "letter/letter_template";
+	}
 }

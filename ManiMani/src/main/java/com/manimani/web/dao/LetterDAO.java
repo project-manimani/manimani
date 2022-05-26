@@ -16,15 +16,14 @@ public class LetterDAO {
 		/* letter 목록 test */
 	public List<LetterVO> letterList() {
 		return mapper.letterList();
-		
 	}
 	
-	public List<LetterVO> receiveLetterList(String receiver) {
-		return mapper.receiveLetterList(receiver);
+	public List<LetterVO> receiveList(String receiver) {
+		return mapper.receiveList(receiver);
 	}
 	
-	public List<LetterVO> sendLetterList(String sender) {
-		return mapper.sendLetterList(sender);
+	public List<LetterVO> sendList(String sender) {
+		return mapper.sendList(sender);
 	}
 	
 	public int letterTotalPage(Map map) {

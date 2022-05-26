@@ -6,4 +6,7 @@ import com.manimani.web.vo.*;
 @Service
 public interface LetterService {
 	public List<LetterVO> letterList();
+	public List<LetterVO> receiveList(String receiver);
+	public List<LetterVO> sendList(String sender);
+	
 }
