@@ -82,30 +82,34 @@
 	
 	
 	<div class="dialog" id="dialog" style="display:none"> 
+		<div class="dialogSubject">새로운 마니또 그룹 만들기</div>
 		<div class="dialogbg">
 		 <form method="post">
-			<div class="dialogTitle">그룹이름</div>
-				<div class="dialogContent"><input type=text></div>
-				
-			<div class="dialogTitle">그룹설명</div>
-				<div class="dialogContent"><textarea rows="10" cols="58" name=content></textarea></div>
-				
+		 	<div class="Gname">
+			<div class="dialogTitle1">그룹이름</div>
+				<div class="dialogContent"><input type=text id="cont1"></div>
+			</div>
+			<div class="Gnum">
 			<div class="dialogTitle">그룹인원</div>
-				<div class="dialogContent"><input type="number" id="person"></div>
+				<div class="dialogContent"><input type="number" id="person">명</div>
+			</div>
+			
+			<div class="dialogTitle">그룹설명</div>
+				<div class="dialogContent"><textarea rows="10" cols="65" id="cont2"></textarea></div>
 				
-			<div class="dialogTitle">기간</div>
-				<div class="dialogContent">
-				<input type="text" id="dt" name="dt" th:value="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd HH:mm')}" readonly>
-				~
-							<!-- 날짜만 할거면
-							<input type="date">
-							-->
-				<input type="datetime-local" id="dt">	<!-- 시작시간보다 앞일 경우 알림 표시 -->
-				</div>
+				
+			<div class="dialogTitle">
+			<input type="text" id="dt" name="dt" th:value="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd HH:mm')}" readonly>
+			-
+						<!-- 날짜만 할거면
+						<input type="date">
+						-->
+			<input type="datetime-local" id="dt">	<!-- 시작시간보다 앞일 경우 알림 표시 -->
+			</div>
 				
 			<div class="dialogTitle">
 				<button class="makeBtn">생성하기</button>
-				<button class="cancelBtn">취소</button>
+				<button class="cancelBtn">취소하기</button>
 			</div>
 		 </form>
 		</div>
