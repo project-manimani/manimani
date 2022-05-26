@@ -149,8 +149,7 @@ body{
 .dialogContent{
 	padding-left:10px;
 }
-.dialogPerson{
-	padding-left:10px;
+#person{
 	width: 80px;
     text-align: center;
 }
