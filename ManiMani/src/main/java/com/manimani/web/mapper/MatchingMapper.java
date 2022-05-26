@@ -5,33 +5,35 @@ import java.util.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import com.manimani.web.vo.MGroupVO;
 import com.manimani.web.vo.MatchingVO;
 import com.manimani.web.vo.MemberVO;
+import com.manimani.web.vo.MyGroupAllInfoVO;
 
 @Mapper
 public interface MatchingMapper {
-
-	//test
-	@Select("SELECT * FROM manimani.matching")
-	public List<MatchingVO> matchingList();
 	
 	//session uid조회 
 	@Select("SELECT uid "
-			+"FROM manimani.member "
+			+"FROM member "
 			+"WHERE account=#{account}")
 	public int matchingMyUid(String account);//session 
-	//MyGroup userList
-	@Select("SELECT * "
-			+"FROM manimani.member "
-			+"WHERE account IN(SELECT account "
-								+"FROM manimani.group_member "
+	
+	//MyGroup userList  + group정보(matchinigMyGroupInfo)
+	@Select("SELECT m.*,mg.*,ma.mid,ma.view "
+			+"FROM member as m "
+			+"LEFT JOIN matching as ma "
+			+"ON m.uid=ma.uid1 or m.uid=ma.uid2 "
+			+"LEFT JOIN mgroup as mg "
+			+"ON ma.gid=mg.gid "
+			+"WHERE m.account IN(SELECT account "
+								+"FROM group_member "
 								+"WHERE gid=(SELECT gid "
-											+"FROM manimani.group_member "
+											+"FROM group_member "
 											+"WHERE account=#{account}) "
-							+") AND account !=#{account}")
-	public List<MemberVO> matchingMyGroupUserList(String account);//account: session_"userID"	
-	
-	
+							+") AND m.account !=#{account}")
+	public List<MyGroupAllInfoVO> matchingMyGroupUserList(String account);//account: session_"userID"	
+		
 	//userDetail
 	@Select("SELECT * "
 			+"FROM member "
@@ -39,33 +41,25 @@ public interface MatchingMapper {
 	public MemberVO matchingUserDetail(int uid);
 	
 	
-	//Mymanimani matching 
-	//방법 1(mid조회 코드 재사용)************************
-	//1.Mid조회
+	/* Mymanimani matching */
+	//1.mid조회 (재사용)
 	@Select("SELECT mid "
 			+"FROM matching "
 			+"WHERE uid1=#{uid1} OR uid2=#{uid2}")
 	public int matchingMid(int uid1,int uid2);
-	//2.본인 (param: 1결과값 )
-	@Select("SELECT mid "
-			+"FROM matching "
-			+"WHERE mid=#{mid}")
-	public int matchingMyMid(int mid);
-	//*******************************************
+//	//2.본인 mid조회 (param: matchingMid_결과값 )
+//	@Select("SELECT mid "
+//			+"FROM matching "
+//			+"WHERE mid=#{mid}")
+//	public int matchingMyMid(int mid);
+	//*******************************************	
 	
-//	//방법2****************************************
-//	//1.본인 mid 조회
-//	@Select("SELECT mid "
-//			+"FROM matching "
-//			+"WHERE mid=(SELECT mid "
-//						+"FROM matching "
-//						+"WHERE uid1=#{uid} OR uid2=#{uid})")
-//	public int matchingMyMid2(int uid);
-//	//2.상대 mid 조회
-//	@Select("SELECT mid "
-//			+"FROM matching "
-//			+"WHERE uid1=#{uid} OR uid2=#{uid}")
-//	public int matchingManiMid(int uid);
-//	//*******************************************	
+	//MyGroup정보 조회(param: matchingMid_결과값)
+	@Select("SELECT * "
+			+"FROM mgroup "
+			+"WHERE gid=(SELECT gid "
+						+"FROM matching "
+						+"WHERE mid=#{mid})")
+	public MGroupVO matchinigMyGroupInfo(int mid);
 	
 }

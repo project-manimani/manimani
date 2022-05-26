@@ -13,27 +13,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.manimani.web.service.MatchingService;
-import com.manimani.web.vo.MatchingVO;
-import com.manimani.web.vo.MemberVO;
+import com.manimani.web.vo.*;
 
 @Controller
-@RequestMapping("group/")
 public class MatchingController {
 	@Autowired
 	private MatchingService service;
 		
 	//userList 출력
-	@GetMapping("matching")
+	@GetMapping("group/matching")
 	public String matching(HttpServletRequest req,Model model) {
 		HttpSession session=req.getSession();
 		//세션 로그인 계정 등록 (임시_로그인기능 구현시 삭제 예정)
-//		session.setAttribute("userID", "account5");
-		
+		session.setAttribute("userID", "account5");
+		//로그인 여부확인
+//		if(session.getAttribute("userID")==null) {
+//			return "redirect:../login";
+//		}
 		//로그인한 계정 조회
 		String userID=(String)session.getAttribute("userID");
 		//MyGroupUserList출력
-		List<MemberVO> list=service.matchingMyGroupUserList(userID);//member테이블 * 정보
-		
+		List<MyGroupAllInfoVO> list=service.matchingMyGroupUserList(userID);//member테이블 * 정보
+		//myGroupInfo
+		MGroupVO mgvo=service.myGroupInfo(userID);
+		model.addAttribute("mgvo",mgvo);
 		model.addAttribute("list",list);		
 		model.addAttribute("sessionID",userID);
 		model.addAttribute("group_content","matching/matching");//"group_content"

@@ -14,9 +14,9 @@ public class MatchingDAO {
 	@Autowired
 	private MatchingMapper mapper;
 	
-	//MyGroup userList
-	public List<MemberVO> matchingMyGroupUserList(String account) {//account:session_"userID"
-		List<MemberVO> list=mapper.matchingMyGroupUserList(account);
+	//MyGroup userList & groupInfo
+	public List<MyGroupAllInfoVO> matchingMyGroupUserList(String account) {//account:session_"userID"
+		List<MyGroupAllInfoVO> list=mapper.matchingMyGroupUserList(account);
 		return list;
 	}
 	//userDetail
@@ -30,19 +30,22 @@ public class MatchingDAO {
 		int maniCheck=-1;
 		//본인 mid 조회
 		int myUid=mapper.matchingMyUid(account);
-		int mid=mapper.matchingMid(myUid,myUid);
-		int MyMid=mapper.matchingMyMid(mid);
+		int myMid=mapper.matchingMid(myUid,myUid);
+//		int MyMid=mapper.matchingMyMid(mid);
 		//선택 상대 mid 조회
-		int MyMani=mapper.matchingMid(uid,uid);
-		if(MyMid==MyMani) {
+		int myMani=mapper.matchingMid(uid,uid);
+		if(myMid==myMani) {
 			maniCheck=1;
 		}
 		return maniCheck;
 	}
 	
+	public MGroupVO myGroupInfo(String account) {
+		//본인 mid 조회
+		int myUid=mapper.matchingMyUid(account);
+		int myMid=mapper.matchingMid(myUid,myUid);
+		MGroupVO vo=mapper.matchinigMyGroupInfo(myMid);
+		return vo;
+	}
 	
-	
-	
-	
-
 }
