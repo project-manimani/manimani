@@ -144,4 +144,12 @@ body{
 }
 .dialogTitle{
 	margin-top:20px;
+	padding-left:10px;
+}
+.dialogContent{
+	padding-left:10px;
+}
+#dt{
+	width:200px;
+	text-align:center;
 }
