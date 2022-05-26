@@ -149,6 +149,11 @@ body{
 .dialogContent{
 	padding-left:10px;
 }
+.dialogPerson{
+	padding-left:10px;
+	width: 80px;
+    text-align: center;
+}
 #dt{
 	width:200px;
 	text-align:center;
