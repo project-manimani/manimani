@@ -17,12 +17,12 @@
           <th class="column-4">게시일</th>
           <th class="column-5">조회수</th>
         </tr>
-        <tr>
-          <td class="table_content" th:each="vo:${bid}">1</td>
-          <td class="table_content" th:each="vo:${receiver}">1</td>
-          <td class="table_content" th:each="vo:${title}">1</td>
-          <td class="table_content" th:each="vo:${regdate}">1</td>
-          <td class="table_content" th:each="vo:${visits}">1</td>
+        <tr th:each="vo: ${list}">
+          <td class="table_content" th:text="${vo.bid}"></td>
+          <td class="table_content" th:text="${vo.account}"></td>
+          <td class="table_content" th:text="${vo.title}"></td>
+          <td class="table_content" th:text="${vo.regdate}"></td>
+          <td class="table_content" th:text="${vo.visits}"></td>
         </tr>
       </table>
     </div>

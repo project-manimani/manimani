@@ -4,7 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.manimani.web.vo.BoardVO;
+import com.manimani.web.vo.*;
 import com.manimani.web.dao.*;
 
 public class BoardRestController {

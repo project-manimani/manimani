@@ -28,9 +28,8 @@ public interface BoardMapper {
     //						+ "WHERE gid=#{gid})) "
     //		+ "WHERE num BETWEEN #{start} AND #{end}")
 	//public List<BoardVO> boardList(Map map);
-	@Select("SELECT * FROM board "
-			+ "WHERE gid=#{gid}")
-	public List<BoardVO> boardList(int gid);
+	@Select("SELECT * FROM board")
+	public List<BoardVO> boardList();
     
     // 게시판 개수
     /*@Select("SELECT COUNT(*) FROM board")

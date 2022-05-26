@@ -15,8 +15,8 @@ public class BoardDAO {
     private BoardMapper mapper;
     
     // 게시판 리스트
-    public List<BoardVO> boardList(int gid){
-        return mapper.boardList(gid);
+    public List<BoardVO> boardList(){
+        return mapper.boardList();
     }
     
     // 게시판 페이지 개수
