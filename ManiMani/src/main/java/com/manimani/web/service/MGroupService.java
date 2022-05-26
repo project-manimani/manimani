@@ -9,4 +9,6 @@ public interface MGroupService {
 	
 	public List<MGroupVO> mGroupListData();
 	
+	public void groupInsert(String id,String code, int admin);
+	
 }

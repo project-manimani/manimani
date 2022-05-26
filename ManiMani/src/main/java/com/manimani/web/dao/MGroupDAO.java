@@ -16,4 +16,8 @@ public class MGroupDAO {
 		return mapper.groupList();
 	}
 	
+	public void groupInsert(String id, String code, int admin) {
+		mapper.groupInsert(id,code,admin);
+	}
+	
 }

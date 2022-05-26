@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
+
 import com.manimani.web.dao.*;
 import com.manimani.web.vo.*;
 import com.manimani.web.service.*;
@@ -24,4 +27,14 @@ public class GroupController {
         model.addAttribute("id","임시아이디");
         return "group/group_template";  
     }
+    
+    @RequestMapping("/insertgroup")
+    public String insertGroup(HttpSession session, MGroupVO vo) {
+    	String id = (String) session.getAttribute("id");
+    	String code = (String)vo.getCode();
+    	service.groupInsert(id,code,0);
+    	
+    	return "redirect:/main";
+    }
+   
 }

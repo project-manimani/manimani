@@ -17,5 +17,11 @@ public class MGroupServiceImpl implements MGroupService{
 
 		return dao.mgroupListData();
 	}
+	@Override
+	public void groupInsert(String id, String code, int admin) {
+		return dao.groupInsert(id,code,adminS);
+		
+	}
+	
 
 }
