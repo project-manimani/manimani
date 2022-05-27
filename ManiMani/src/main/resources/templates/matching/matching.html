@@ -6,27 +6,37 @@
 <title>Insert title here</title>
 <style type="text/css">
 /***** slide  *****/
-.wrap-uList {
+.matchingBox {
     margin: 0px auto;
-    width: 80%;
-    height: 40%;
+    width: 60%;
+    height: 600px;
     position: absolute;
     border-radius: 20px;
     border: 1.5px solid #494949;
-    min-height: 900px;
     background-color: #93b8ef;
+    margin-top: 66px;
 }
-.mgUserList {
+.matchingBox-in{
     position: absolute;
-    top: 80px;
-    right: 2%;
-    width: 96%;
-    height: 300px;
-    overflow: hidden;
-    left: 2%;
+    top: 10px;
+    right: 25px;
+    width: 96.7%;
+    height: 340px;
+    left: 11px;
     background-color: #fff7ee;
     border-radius: 20px;
     border: 1.5px solid #494949;
+}
+.mgUserList {  
+    position: absolute;
+    top: 72px;
+    right: 25px;
+    width: 77%;
+    height: 213px;
+    overflow: hidden;
+    left: 9.2%;
+    border-radius: 20px;
+}
 }
 .makeoverflow {
     position: absolute;
@@ -36,11 +46,13 @@
     height: 50%;
 }
 .circleWrap {
-    position: relative;
+	position: relative;
     display: inline-block;
-    width: 250px;
-    height: 250px;
-    margin: 20px;
+    width: 180px;
+    height: 180px;
+    margin:30px;
+    margin-top: 10px;
+    margin-right:10px;
     border-radius: 200px;
     text-align: center;
     background-color: #fd9;
@@ -49,26 +61,33 @@
 }
 .righterPosition{
 	position:absolute;
-	right:30px;
-	top:130px;
+	right:60px;
+	top:160px;
+	z-index:3;
+	width:30px;
+	height:30px;
+}
+.lefterPosition{
+	position:absolute;
+	left:60px;
+	top:160px;
 	z-index:3;
 	width:30px;
 	height:30px;
 }
 .poster{
-	width:100%;
-	height:100%;
-	border-radius: 20px;
+	width:100px;
+	height:100px;
 }
 .userInfo {
-    left: 20%;
+	left:0%;
+	right:0%;
     position: absolute;
-    bottom: 20px;
+    bottom: 21px;
     margin: 0px auto;
-    width: 60%;
-    height: 15%;
-    right: 20%;
-    background-color: rgba(255,255,255,0.8);
+    width: 178px;
+    height: 25px;
+    background-color: white;
     border-radius: 20px;
     bottom: 10%;
     padding: 6%;
@@ -77,28 +96,27 @@
 p{
 	line-height:5px; 
 }
-.font-h{
+.font-H{
 	position:absolute;
-	font-size: 25px;
-	font-weight: 600;
-	font-style: oblique;
-	color:#fff7ee;
-	top:20px;;
-	left:5%;
+	font-size: 20px;
+    font-weight: 400;
+    color: #bfe261;
+	font-family: 'Noto Sans KR', sans-serif;
+	text-shadow:-1.5px 0 #494949, 0 1.5px #494949, 1.5px 0 #494949, 0 -1.5px #494949;
 }
 .height-45{
     position: absolute;
-    font-size: 23px;
+    font-size: 20px;
     font-weight:600;
     color: #fff7ee;
-    top: 45%;
-    right: 5%;
+    top: 400px;
+    left:3%;
 }
 /*****  end slide  *****/
 /***** 내 프로필   *****/
 .wrap-myImg{
-    width: 250px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     margin-left: 5%;
     margin-top: 40px;
     border-radius: 20px;
@@ -107,6 +125,7 @@ p{
 }
 .myImg{
 	width: 218px;
+	height:218px;
     margin-left: 5%;
     margin-top: 28px;
 }
@@ -132,7 +151,105 @@ p{
     background-color: #dcedbc;
 }
 /*****  end 내프로필   *****/
-
+.bear{	
+    top: 32px;
+    width: 100px;
+    height: 73px;
+    
+    margin-bottom: -19px;
+}
+/******* 상단 프로필  *******/
+.wrap-table{
+	margin-top:50px;	
+	width:96%;
+	height:300px;
+	border-radius: 20px;
+	background-color: rgba(255,255,255,0.8);
+	text-shadow:-1.5px white , 0 1.5px #494949, 1.5px 0 #494949, 0 -1.5px #494949;
+}
+/**** 내 프로필 *****/
+.imgimg-l{
+	width: 200px;
+	height: 200px;
+	margin-top: 25px;
+}
+.wrap-imgimg-l{
+	padding-left:20px;
+	width: 50%;
+	height: 250px;
+}
+.account{
+	margin-left:80px;
+}
+/**** 마니또 프로필 *****/
+.wrap-imgimg-r{
+	padding-right: 20px;
+	width: 250px;
+	height: 250px;
+}
+.imgimg-r{
+	width: 200px;
+	height: 200px;
+	margin-top: 25px;
+}
+.img-r-wrap{
+	border: 1px solid #494949;
+	background-color: pink;
+	border-radius: 20px;
+	width: 300px;
+	height: 300px;
+	margin-top: 10px;
+}
+.border-rad-20{
+    border: 1px solid #494949;
+    border-radius: 20px;
+    margin: 0px auto;
+    width: 50%;
+    height: 44px;
+    margin-top: -27px;
+    padding: 5px;
+    text-align: center;
+    background-color: #fd9c87;
+}
+.ment{
+	margin-top: 426px;
+    font-size: 26px;
+    font-weight: 400;
+    color: #fd9c87;
+	font-family: 'Noto Sans KR', sans-serif;
+	text-shadow:-1.5px 0 #494949, 0 1.5px #494949, 1.5px 0 #494949, 0 -1.5px #494949;
+	
+    
+}
+.mbtn{
+	display:none;
+	font-size:20px;
+	margin: 0px auto;
+	border: 1px solid black;
+	border-radius: 30px;
+	padding: 1px;
+	background-color: #fd9c87;
+	color:white;
+	width: 150px;
+	height: 50px;
+	margin-top: 524px;
+    text-align: center;
+    align-self: center;
+}
+.userINFO{	
+    border: 1px solid black;
+    width: 243px;
+    height: 94px;
+    margin-top: 295px;
+    padding-block: 24px;    
+    background-color: sky;
+    text-align: center;
+}
+.click-poster{
+	width: 150px;
+	height: 150px;
+	margin-top:-46px;
+}
 </style>
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
@@ -144,29 +261,42 @@ $(function(){
     },function(){
        $(this).css("cursor","")
     })
-    /*maniImg default*/
-    $('#maniImg').attr("src","/img/matching/물음표.png");
+    /*****  maniImg default  *****/
+    $('#maniImg').attr("src","/img/matching/물음표.png");//
 	
-    // start click => userDetail
+    /***** start click => userDetail  *****/
     $('.poster').click(function(){
 		let uid=$(this).attr("data-uid");
-		let uimg=$(this).attr("data-img");
-       	console.log('clickUserID:'+uid+' ## userImg:'+uimg);//
+		//let uimg=$(this).attr("data-img");//
+		let idx=$(this).attr("data-idx");
+		//let p-i=$(this).attr("p-i"); //th:data-p-i
+		let i=1;
+		//for			
+		if(idx==$(this).attr("data-idx")){//&&i=
+			$(this).attr("class","click-poster");
+			i++
+		}else if(idx!=$(this).attr("data-idx")){
+			$(this).attr("class","poster");
+		}
+       	console.log('clickUserID:'+uid+' ## idx:'+idx);//
        	$.ajax({
         	type:'post',
         	url:'userDetail',
         	data:{"userID":uid},
           	success:function(res){
-            	console.log("success: "+res.account+' ## uimg:'+uimg);//
-            	$('#maniImg').attr("src",uimg);
-            	console.log("maniImg:"+$('#maniImg').attr("src"));
+            	console.log("success: "+res.account+' ## uimg:');//
+            	//$('#maniImg').attr("src",uimg);
+            	//console.log("maniImg:"+$('#maniImg').attr("src"));
             	$('#matchingBtn').attr("data-mUid",res.uid);
             	$('#maniAccount').text(res.account);
             	$('#maniEmail').text(res.email);
             	$('.mbtn').show();
+            	$('.userINFO').show();
           	}
    		})//end ajax
 	})//end click.poster
+	
+	/*****  click => dialog  *****/
 	$('#matchingBtn').click(function(){
 		let maniUid=$(this).attr("data-mUid");
 		console.log("maniUid: "+maniUid);
@@ -195,6 +325,7 @@ $(function(){
 			}
 		})//ajax
 	})//end click#matchingBtn
+	
 })//end function
 </script>
 <script>
@@ -215,21 +346,27 @@ $(document).ready(function() {
 <body>
 <!-- *******************************        Side         ****************************** -->
 	<!--****************************   MatchingContent   *****************************  -->
-	<div class="matching_cnt">
-		<div class="container flex-c">
-			<div class="wrap-uList flex-c">
-				<div class="font-h">GroupName그룹 회원목록</div>				
+	<div class="matching_cnt flex-c">
+	<img class="bear" th:src="@{/img/matching/성공.png}">	
+	
+		<div class="container matchingBox flex-c">
+			
+			<div class="container matchingBox-in flex-c">
+				<div class="border-rad-20 font-H" th:text="${mgvo.gname}+'님의 마니마니 맞추기'"></div>	
+				<div class="lefterPosition">
+					<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
+					<i class="lefter fas fa-angle-double-left"></i>
+				</div>	
 				<!--********************  slick(slide)  ********************-->
 				<div class="mgUserList">
-					<div class="righterPosition">
-						<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
-						<i class="righter fas fa-angle-double-right"></i>
-					</div>
+					
 					<div class="makeoverflow">
-						<div class="circleWrap" th:each="vo,index:${list}">
+						
+						<div class="circleWrap" style="width: 180px;"th:each="vo,index:${list}" ><!-- th:data-len="${list.length}" -->
 							<img class="poster" th:title="${vo.account}"
 								th:src="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
          						th:data-uid="${vo.uid}" th:data-img="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
+         						th:data-idx="${index.index}" 
          					>
 						<div class="userInfo">
 							 <p th:text="${vo.account}"></p>
@@ -239,30 +376,28 @@ $(document).ready(function() {
 				</div>
 			</div>
 			<!-- **********************  end slide  ********************** -->
-			<div class="height-45"><span class="fs-25" th:text="${sessionID}"></span>님의 마니또 라고 생각하는 상대를 클릭해보세요 : )  
-				<button class="mbtn" id="matchingBtn" data-mUid="maniUid">확인</button>
+			<div class="righterPosition">
+				<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
+				<i class="righter fas fa-angle-double-right"></i>
 			</div>
-			<div class="myInfo">
-				<div class="wrap-myImg ">
-					<img class="myImg" th:src="@{/img/matching/user_6.png}">
-				</div>
-				<div class="account" th:text="${sessionID}"></div>
+			<!-- ajax_click.poster -->
+			<div class="userINFO" style="display:none;">
+				<div id="maniAccount"></div>
+	            <div id="maniEmail"></div>
 			</div>
-			<div class="maniInfo">
-				<div class="wrap-myImg ">
-					<img class="myImg" id="maniImg" >
-				</div>
-				<div class="account">
-					<p id="maniAccount"></p><br>
-					<p id="maniEmail"></p>
-				</div>
-			</div>			
 		</div>
+			<div class="ment">
+				나의 마니마니 마니또는 바로 너!
+			</div>
+			<!-- click => dialog -->
+			<button class="mbtn" id="matchingBtn" data-mUid="maniUid">확인하기</button>
+				
+			
 	</div>
 	<!--*******************   dialog   *******************-->
 	<div class="box" id="dialog" style="display:none"><!-- title대입 예정 -->
-	 <div id="check"></div>
-	 <a id="sendEmail" href="../letter/letter" style="display: none">개인편지함으로 이동</a>
+		<div id="check"></div>
+	 	<a id="sendEmail" href="../letter/letter" style="display: none">개인편지함으로 이동</a>
    	</div>
    	<!--*****************   end dialog   *****************-->    
     </div>
@@ -270,16 +405,20 @@ $(document).ready(function() {
 <!-- *******************************       Footer            ****************************** -->
 <script type="text/javascript"src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
 <script>
-	$(document).ready(function() {
-		$('.makeoverflow').slick({
-			prevArrow : $(".lefter"),
-			nextArrow : $(".righter"),
-			infinite : true,
-			speed : 300,
-			slidesToShow : 4,
-			slidesToScroll : 1
-		});
+$(document).ready(function() {
+	$('.makeoverflow').slick({
+		prevArrow : $(".lefter"),
+		nextArrow : $(".righter"),
+		slide: '.circleWrap',
+		infinite : true,
+		autoplay: true,      //자동시작 (boolean) -default:false
+		autoplaySpeed: 500, //자동넘기기 시간(int, 1000ms = 1초)
+		speed:900,
+		slidesToShow : 3,
+		slidesToScroll : 1,
+		
 	});
+});
 </script>
 </body>
 </html>

@@ -2,10 +2,9 @@
 
 /* matching페이지 wrap */
 .matching_cnt{
-	width:90%;
-	min-height:1000px;
-	
-	margin: 50px;
+	width:80%;
+	min-height:800px;	
+	margin: 0px auto;
 	font-size: 15px;/*기본 15px;*/
 }
 
@@ -17,27 +16,15 @@
 
 /* [font-weight] */
 .fw-b{font-weight: bold;}
-/**/
-
+/*****************/
+ 
 /****** 내프로필 _폰트  *****/
 .account{
 	right: 5px;
 }
 /**********************/
 /*****  button *****/
-.mbtn{
-	display:none;
-	font-size:20px;
-	margin: 0px auto;
-	border: 1px solid black;
-	border-radius: 20px;
-	width: 70px;
-	height: 36px;
-	padding: 1px;
-	
-	background-color: #fd9c87;
-	color:white;
-}
+
 /*******************/
 /******  maniInfo 이미지크기  ******/
 .Q{
@@ -51,5 +38,5 @@
 }
 
 /****  slide  *****/
+/******************/
 
-/**/
