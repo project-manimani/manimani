@@ -9,27 +9,27 @@
 .matchingBox {
     margin: 0px auto;
     width: 60%;
-    height: 600px;
+    height: 536px;
     position: absolute;
     border-radius: 20px;
     border: 1.5px solid #494949;
-    background-color: #93b8ef;
-    margin-top: 66px;
+    background-color: #dcedbc;
+    margin-top: 96px;
 }
 .matchingBox-in{
     position: absolute;
     top: 10px;
     right: 25px;
     width: 96.7%;
-    height: 340px;
+    height: 296px;
     left: 11px;
-    background-color: #fff7ee;
+    background-color: white;
     border-radius: 20px;
     border: 1.5px solid #494949;
 }
 .mgUserList {  
     position: absolute;
-    top: 72px;
+    top: 42px;
     right: 25px;
     width: 77%;
     height: 213px;
@@ -48,15 +48,26 @@
 .circleWrap {
 	position: relative;
     display: inline-block;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 186px;
     margin:30px;
     margin-top: 10px;
     margin-right:10px;
     border-radius: 200px;
     text-align: center;
-    background-color: #fd9;
     padding: 35px;
+}
+.circleWrap-in {
+	position: absolute;
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    margin:-23px;  
+    margin-left:-81px;
+    border-radius: 200px;
+    text-align: center;
+    background-color: #fd9;
+    padding: 30px;
     border: 1.5px solid #494949;
 }
 .righterPosition{
@@ -85,12 +96,12 @@
     position: absolute;
     bottom: 21px;
     margin: 0px auto;
-    width: 178px;
+    width: 151px;
     height: 25px;
     background-color: white;
     border-radius: 20px;
     bottom: 10%;
-    padding: 6%;
+    padding: 3.5%;
     border: 1.5px solid #494949;
 }
 p{
@@ -153,10 +164,10 @@ p{
 /*****  end 내프로필   *****/
 .bear{	
     top: 32px;
-    width: 100px;
-    height: 73px;
-    
+    width: 116px;
+    height: 77px;
     margin-bottom: -19px;
+    margin-top:24px;
 }
 /******* 상단 프로필  *******/
 .wrap-table{
@@ -212,86 +223,102 @@ p{
     background-color: #fd9c87;
 }
 .ment{
-	margin-top: 426px;
+	margin-top: 363px;
     font-size: 26px;
     font-weight: 400;
     color: #fd9c87;
 	font-family: 'Noto Sans KR', sans-serif;
 	text-shadow:-1.5px 0 #494949, 0 1.5px #494949, 1.5px 0 #494949, 0 -1.5px #494949;
-	
-    
+    text-align: center;
 }
-.mbtn{
-	display:none;
-	font-size:20px;
-	margin: 0px auto;
-	border: 1px solid black;
-	border-radius: 30px;
-	padding: 1px;
-	background-color: #fd9c87;
-	color:white;
-	width: 150px;
-	height: 50px;
-	margin-top: 524px;
+.mbtn{	
+    font-size: 18px;
+    margin: 0px auto;
+    border: 1px solid #494949;
+    border-radius: 34px;
+    padding: 1px;
+    background-color: darkgray;
+    color: white;
+    width: 124px;
+    height: 41px;
     text-align: center;
     align-self: center;
+    margin-left: 41%;
+    margin-top: 40px;
 }
 .userINFO{	
-    border: 1px solid black;
+    border: 1px solid #494949;
+    border-radius:20px;
     width: 243px;
-    height: 94px;
-    margin-top: 295px;
-    padding-block: 24px;    
-    background-color: sky;
+    height: 73px;
+    margin-top: 251px;
+    padding-block: 10px;    
+    background-color: #93b8ef;
     text-align: center;
+    color:white
 }
 .click-poster{
 	width: 150px;
 	height: 150px;
 	margin-top:-46px;
 }
+/****/
+
 </style>
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>
 $(function(){
-	$('.circleWrap').hover(function(){
+	/*****  css  *****/
+	$('.circleWrap-in,.righter,.lefter').hover(function(){
        $(this).css("cursor","pointer")
     },function(){
        $(this).css("cursor","")
     })
+    //
+    let click=false;//클릭상태 확인용
+   
+    if(!click){
+	    $('.circleWrap').mouseleave(function(){
+			$(this).css("border","");
+			$(this).css("background-color","");
+		}),$('.circleWrap').mouseenter(function(){
+	    	$(this).css("border","1.5px solid #494949");	
+			$(this).css("background-color","#fd9c87");
+	    })
+    }
+	//end css
+    
     /*****  maniImg default  *****/
-    $('#maniImg').attr("src","/img/matching/물음표.png");//
+    //$('#maniImg').attr("src","/img/matching/물음표.png");
 	
     /***** start click => userDetail  *****/
-    $('.poster').click(function(){
+    $('.circleWrap').click(function(){
+    	click=true;
 		let uid=$(this).attr("data-uid");
-		//let uimg=$(this).attr("data-img");//
-		let idx=$(this).attr("data-idx");
-		//let p-i=$(this).attr("p-i"); //th:data-p-i
-		let i=1;
-		//for			
-		if(idx==$(this).attr("data-idx")){//&&i=
-			$(this).attr("class","click-poster");
-			i++
-		}else if(idx!=$(this).attr("data-idx")){
-			$(this).attr("class","poster");
-		}
-       	console.log('clickUserID:'+uid+' ## idx:'+idx);//
+		let idx=$(this).attr("data-idx");	
+		console.log('clickUserID:'+uid+' ## idx:'+idx);//		
+		//click_css 제거
+		$('.circleWrap').css("border","");
+		$('.circleWrap').css("background-color","");
+		$('.mbtn').css("cursor","pointer");
+		//click_css this에만 추가
+		$(this).css("border","1.5px solid #494949");	
+		$(this).css("background-color","#fd9c87");					
+		
        	$.ajax({
         	type:'post',
         	url:'userDetail',
         	data:{"userID":uid},
           	success:function(res){
-            	console.log("success: "+res.account+' ## uimg:');//
-            	//$('#maniImg').attr("src",uimg);
-            	//console.log("maniImg:"+$('#maniImg').attr("src"));
+            	console.log("success: "+res.account);//
             	$('#matchingBtn').attr("data-mUid",res.uid);
             	$('#maniAccount').text(res.account);
             	$('#maniEmail').text(res.email);
-            	$('.mbtn').show();
+            	//$('.mbtn').show();
             	$('.userINFO').show();
+            	$('.mbtn').css('background-color','#fd9c87');
           	}
    		})//end ajax
 	})//end click.poster
@@ -299,7 +326,7 @@ $(function(){
 	/*****  click => dialog  *****/
 	$('#matchingBtn').click(function(){
 		let maniUid=$(this).attr("data-mUid");
-		console.log("maniUid: "+maniUid);
+		console.log("maniUid: "+maniUid);//
 		$.ajax({
 			type:'post',
 			url:'matchingCheck',
@@ -348,9 +375,7 @@ $(document).ready(function() {
 	<!--****************************   MatchingContent   *****************************  -->
 	<div class="matching_cnt flex-c">
 	<img class="bear" th:src="@{/img/matching/성공.png}">	
-	
-		<div class="container matchingBox flex-c">
-			
+		<div class="container matchingBox">
 			<div class="container matchingBox-in flex-c">
 				<div class="border-rad-20 font-H" th:text="${mgvo.gname}+'님의 마니마니 맞추기'"></div>	
 				<div class="lefterPosition">
@@ -359,47 +384,41 @@ $(document).ready(function() {
 				</div>	
 				<!--********************  slick(slide)  ********************-->
 				<div class="mgUserList">
-					
 					<div class="makeoverflow">
-						
-						<div class="circleWrap" style="width: 180px;"th:each="vo,index:${list}" ><!-- th:data-len="${list.length}" -->
-							<img class="poster" th:title="${vo.account}"
-								th:src="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
-         						th:data-uid="${vo.uid}" th:data-img="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
-         						th:data-idx="${index.index}" 
-         					>
-						<div class="userInfo">
-							 <p th:text="${vo.account}"></p>
-							<!--<p th:text="${vo.account.length>=10?#strings.substring(vo.account,0,10)+'...':vo.account}"></p> -->
-						</div>
-					</div>	
+						<div class="circleWrap" th:each="vo,index:${list}"
+							th:data-uid="${vo.uid}" th:data-idx="${index.index}" th:data-i="0">
+							<div class="circleWrap-in" >
+								<img class="poster" th:title="${vo.account}"
+									th:src="${index.index}+1>9?@{/img/matching/user_}+(${index.index}-8)+'.png':@{/img/matching/user_} + (${index.index}+1) + '.png'"
+         						>
+								<div class="userInfo">
+									<p th:text="${vo.account.length>=10?#strings.substring(vo.account,0,10)+'...':vo.account}"></p>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<!-- **********************  end slide  ********************** -->
+				<div class="righterPosition">
+					<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
+					<i class="righter fas fa-angle-double-right"></i>
+				</div>
+				<!-- ajax_click.poster -->
+				<div class="userINFO" style="display:none;">
+					<div id="maniAccount"></div>
+	           		<div id="maniEmail"></div>
 				</div>
 			</div>
-			<!-- **********************  end slide  ********************** -->
-			<div class="righterPosition">
-				<!-- <img class="righter" th:src="@{/image/righter.png}"> -->
-				<i class="righter fas fa-angle-double-right"></i>
-			</div>
-			<!-- ajax_click.poster -->
-			<div class="userINFO" style="display:none;">
-				<div id="maniAccount"></div>
-	            <div id="maniEmail"></div>
-			</div>
-		</div>
-			<div class="ment">
-				나의 마니마니 마니또는 바로 너!
-			</div>
+			<div class="ment">나의 마니마니 마니또는 바로 너!</div>
 			<!-- click => dialog -->
-			<button class="mbtn" id="matchingBtn" data-mUid="maniUid">확인하기</button>
-				
-			
-	</div>
-	<!--*******************   dialog   *******************-->
-	<div class="box" id="dialog" style="display:none"><!-- title대입 예정 -->
-		<div id="check"></div>
-	 	<a id="sendEmail" href="../letter/letter" style="display: none">개인편지함으로 이동</a>
-   	</div>
-   	<!--*****************   end dialog   *****************-->    
+			<button class="mbtn" id="matchingBtn" data-mUid="maniUid" style="cursor: default;">확인하기</button>							
+		</div>
+		<!--*******************   dialog   *******************-->
+		<div class="box" id="dialog" style="display:none"><!-- title대입 예정 -->
+			<div id="check"></div>
+	 		<a id="sendEmail" href="../letter/letter" style="display: none">개인편지함으로 이동</a>
+  	 	</div>
+   		<!--*****************   end dialog   *****************-->    
     </div>
     <!--****************************   end MatchingContent   ****************************** -->
 <!-- *******************************       Footer            ****************************** -->
