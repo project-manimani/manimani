@@ -11,4 +11,5 @@ public interface MGroupService {
 	
 	public void groupInsert(String id,String code, int admin);
 	
+	public String findingGroup(String code);
 }

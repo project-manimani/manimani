@@ -12,14 +12,22 @@ import com.manimani.web.dao.*;
 public class MGroupServiceImpl implements MGroupService{
 	@Autowired
 	private MGroupDAO dao;
+	
 	@Override
 	public List<MGroupVO> mGroupListData() {
 
 		return dao.mgroupListData();
 	}
+	
 	@Override
 	public void groupInsert(String id, String code, int admin) {
 		dao.groupInsert(id,code,admin);		
+	}
+	
+	@Override
+	public String findingGroup(String code) {
+		
+		return dao.findingGroup(code);
 	}
 	
 

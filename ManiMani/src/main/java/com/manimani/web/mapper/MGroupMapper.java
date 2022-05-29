@@ -21,4 +21,7 @@ public interface MGroupMapper {
 	@Insert("INSERT INTO group_member(gid,account,admin) VALUES ((SELECT gid from mgroup where code=#{code}),#{account},#{admin})")
 	public void groupInsert(String id, String code, int admin);
 	
+	@Select("SELECT gname FROM mgroup WHERE code=#{code}")
+	public String findingGroup(String code);
+	
 }

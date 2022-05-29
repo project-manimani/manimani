@@ -20,4 +20,8 @@ public class MGroupDAO {
 		mapper.groupInsert(id,code,admin);
 	}
 	
+	public String findingGroup(String code) {
+		return mapper.findingGroup(code);
+	}
+	
 }
