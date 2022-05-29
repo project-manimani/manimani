@@ -14,7 +14,8 @@
     border-radius: 20px;
     border: 1.5px solid #494949;
     background-color: #dcedbc;
-    margin-top: 96px;
+    margin-top: 14px;
+    margin-left: 10%;
 }
 .matchingBox-in{
     position: absolute;
@@ -243,8 +244,8 @@ p{
     height: 41px;
     text-align: center;
     align-self: center;
-    margin-left: 41%;
-    margin-top: 40px;
+    margin-left: 0%;
+    margin-top: 40px
 }
 .userINFO{	
     border: 1px solid #494949;
@@ -262,14 +263,110 @@ p{
 	height: 150px;
 	margin-top:-46px;
 }
-/****/
+/**타이머**/
+#myProgress {
+    width: 40%;
+    border: 1px solid;
+    border-radius: 20px;
+    height: 32px;
+    margin-top: 575px;
+    padding-left: 0%;
+}
+ 
+#myBar {
+    width: 100%;
+    height: 30px;
+    background-color: lightcoral;
+    border: 1.5px solid #494949;
+    border-radius: 20px;
+    margin-left: 0%
+}
+#digit{
+	color: white;
+}
+/*****/
 
+.Dbear{
+    margin-top: -133px;
+    margin-left: 0%;
+    width: 520px;
+    height: 500px;
+}
+.Btn-ra{
+	    border: 11px solid black;
+    border-radius: 70px;
+    width: 344px;
+    height: 98px;
+    background-color: deeppink;
+    color: white;
+    font-size: 44px;
+    font-weight: 700;
+    margin-left: 99px;
+    margin-top: -37px;
+    padding-bottom: 24px;
+}
 </style>
 <link rel="stylesheet" type="text/css" th:href="@{/css/matching.css}">
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>
 $(function(){
+	//let mathcingBtn_st=0;//matchingBtn 클릭상태 확인 변수
+	//console.log('초기matchingBtn_st:'+matchingBtn_st);
+	/* startDialog */	
+	$('#startDialog').dialog({
+    				autoOpen:false,
+    				width:500,
+    				height:400,
+    				modal:true
+    			}).dialog("open");
+	//end startDialog
+	
+	/***** click_#btnPlay => 배경음  *****/
+	let audio=new Audio();//audio객체 획득
+	audio.src="/audio/깡총깡총.mp3";
+	console.log("audio.src: "+audio.src);//
+	let btnPlay=document.getElementById("btnPlay");//play객체 획득
+	let btnPause = document.getElementById("matchingBtn");//pausen객체 획득
+	let i = 30;//타이머 30초
+	
+	btnPlay.onclick = function () {
+	   $('#startDialog').dialog("close");
+	   myAudio.play();//배경음 
+	   /*** 타이머  ***/
+	   if (i == 30)
+	    {
+	        i = 29;
+	        let digit = document.getElementById("digit"); 
+	 
+	        let elem = document.getElementById("myBar");
+	        let width = 29;//초
+	        let w=100;//%_프로그래스바
+	        let id = setInterval(frame,1000);
+	        function frame() {
+	            if (width <= 0) {
+	                clearInterval(id);
+	                i=30;
+	                digit.innerHTML = width + "초";
+	                myAudio.pause();
+	                alert("시간 초과! 다음기회에 다시 도전하세요 :)");
+	                location.href="/group/main";
+	            } else {
+	                digit.innerHTML = width + "초";
+//	                if(mathcingBtn_st==1){//확인하기 클릭시 타이머 stop
+//	                	console.log('timer//matchingBtn_st:'+matchingBtn_st);
+	                	w-=3.3;
+	               		width--;
+//	                }
+	                elem.style.width = w + "%";
+	            }
+	        }
+	    }//end 타이머
+	}//end click_#btnPlay
+	btnPause.onclick=function(){
+		myAudio.pause();
+	}
+	
 	/*****  css  *****/
 	$('.circleWrap-in,.righter,.lefter').hover(function(){
        $(this).css("cursor","pointer")
@@ -325,6 +422,8 @@ $(function(){
 	
 	/*****  click => dialog  *****/
 	$('#matchingBtn').click(function(){
+//		mathcingBtn_st=1;
+//		console.log('mtchBtn.click//st:'+matchingBtn_st);
 		let maniUid=$(this).attr("data-mUid");
 		console.log("maniUid: "+maniUid);//
 		$.ajax({
@@ -371,9 +470,12 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<!-- ********************* 배경음악  ************************* -->
+<audio th:src="@{/audio/깡총깡총.mp3}" autoplay loop id="myAudio"></audio>
+<!-- *******************  end 배경음  ************************ -->
 <!-- *******************************        Side         ****************************** -->
 	<!--****************************   MatchingContent   *****************************  -->
-	<div class="matching_cnt flex-c">
+	<div class="matching_cnt">
 	<img class="bear" th:src="@{/img/matching/성공.png}">	
 		<div class="container matchingBox">
 			<div class="container matchingBox-in flex-c">
@@ -413,11 +515,27 @@ $(document).ready(function() {
 			<!-- click => dialog -->
 			<button class="mbtn" id="matchingBtn" data-mUid="maniUid" style="cursor: default;">확인하기</button>							
 		</div>
+		<!-- 타이머 -->
+		<div id="myProgress">
+		    <div id="myBar">
+		    <span id="digit"></span>
+		    		    </div>
+		</div>
+		<br><br>
+		<!-- end 타이머 -->
 		<!--*******************   dialog   *******************-->
+		<!-- ******************  startBtn click => startDialog  **************** -->
+		<div class="box" id="startDialog" style="display:none"><!-- title대입 예정 -->			
+			<img class="Dbear" th:src="@{/img/matching/성공.png}">	
+			<button class="Btn-ra" id="btnPlay" onclick="start()">start!</button>
+		</div>
+		<!-- *****************  end startDailog  ******************** -->
+  	 	<!-- ****************  matchingBtn click => dialog  ***************** -->
 		<div class="box" id="dialog" style="display:none"><!-- title대입 예정 -->
 			<div id="check"></div>
 	 		<a id="sendEmail" href="../letter/letter" style="display: none">개인편지함으로 이동</a>
   	 	</div>
+  	 	<!-- *****************  end matchingDialog  ************************** -->
    		<!--*****************   end dialog   *****************-->    
     </div>
     <!--****************************   end MatchingContent   ****************************** -->

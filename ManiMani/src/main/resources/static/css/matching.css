@@ -6,6 +6,7 @@
 	min-height:800px;	
 	margin: 0px auto;
 	font-size: 15px;/*기본 15px;*/
+	text-align: -webkit-center;
 }
 
 /*[COLOR]-main.css참조*/
