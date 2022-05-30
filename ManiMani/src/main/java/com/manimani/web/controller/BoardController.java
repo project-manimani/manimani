@@ -25,8 +25,8 @@ public class BoardController {
         return "board/board_template";
     }
 	
-	/*@GetMapping("/board")
-	public String board_list() {
+	@GetMapping("/board_insert")
+	public String board_insert() {
 		return "board/board_template";
-	}*/
+	}
 }

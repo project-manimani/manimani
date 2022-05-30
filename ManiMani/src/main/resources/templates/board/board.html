@@ -8,7 +8,9 @@
 <body>
   <div class="dis-flex flex-c-m bList">
     <div class="boardlist">
-      <div class="board_head">자유게시판</div>
+      <div class="board_head">
+        <span class="board_name">자유게시판</span>
+      </div>
       <table class="table_whole">
         <tr class="fs-18 m-b-10">
           <th class="column-1">글 번호</th>
@@ -25,6 +27,7 @@
           <td class="table_content" th:text="${vo.visits}"></td>
         </tr>
       </table>
+      <button class="write">작성하기</button>
     </div>
   </div>
 </body>
