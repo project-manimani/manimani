@@ -143,9 +143,9 @@ body{
 }
 .makeBtn{
 	position:relative;
-	width:100px;
-	height:30px;
-	left:30%;
+	width:150px;
+	height:40px;
+	left:20%;
 	border-radius: 20px;
 	border: 1.5px solid #494949;
 	background-color: #fd9c87;
@@ -153,9 +153,9 @@ body{
 }
 .cancelBtn{
 	position:relative;
-	width:100px;
-	height:30px;
-	left:35%;
+	width:150px;
+	height:40px;
+	left:20%;
 	border-radius: 20px;
 	border: 1.5px solid #494949;
 	background-color: #93b8ef;
@@ -169,12 +169,20 @@ body{
 }
 .dialogTitle{
 	margin-top:20px;
-	padding-left:30px;
+	padding-left:35px;
 	font-size:20px;
 	font-weight:bold;
 }
 .dialogContent{
 	padding-left:30px;
+	padding-top:10px;
+}
+
+/*그룹인원CSS*/
+.dialogContent1{
+	padding-left:30px;
+	padding-top:10px;
+	font-size:20px;
 }
 .Gname{
 	display:inline-block;
@@ -184,12 +192,12 @@ body{
 	display:inline-block;
 }
 #person{
-	width: 80px;
+	width: 110px;
 	height:35px;
     text-align: center;
 }
 #dt{
-	width:200px;
+	width:250px;
 	text-align:center;
 }
 #cont1{
